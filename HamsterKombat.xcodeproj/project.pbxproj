@@ -11,6 +11,21 @@
 		9999E9712C628CFF002C0819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9702C628CFF002C0819 /* ContentView.swift */; };
 		9999E9732C628D02002C0819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9722C628D02002C0819 /* Assets.xcassets */; };
 		9999E9762C628D02002C0819 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9752C628D02002C0819 /* Preview Assets.xcassets */; };
+		9999E97F2C628DB4002C0819 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E97E2C628DB4002C0819 /* LoadingView.swift */; };
+		9999E9822C628E0A002C0819 /* ImageTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9812C628E0A002C0819 /* ImageTitles.swift */; };
+		9999E9852C62902F002C0819 /* TextCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9842C62902F002C0819 /* TextCustom.swift */; };
+		9999E9872C629093002C0819 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9862C629093002C0819 /* UIFontExtension.swift */; };
+		9999E9892C6290BF002C0819 /* FontCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9882C6290BF002C0819 /* FontCustomModifier.swift */; };
+		9999E98B2C6290D2002C0819 /* ForegroundColorCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E98A2C6290D2002C0819 /* ForegroundColorCustomModifier.swift */; };
+		9999E98E2C62C266002C0819 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E98D2C62C266002C0819 /* MainView.swift */; };
+		9999E9912C62C28E002C0819 /* DailyRewardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9902C62C28E002C0819 /* DailyRewardButton.swift */; };
+		9999E9932C62C593002C0819 /* CoinsForAdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9922C62C593002C0819 /* CoinsForAdButton.swift */; };
+		9999E9952C62C64C002C0819 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9942C62C64C002C0819 /* TimerView.swift */; };
+		9999E9972C6360C9002C0819 /* BuyASkinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9962C6360C9002C0819 /* BuyASkinButton.swift */; };
+		9999E9992C63649C002C0819 /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9982C63649C002C0819 /* LeagueView.swift */; };
+		9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */; };
+		9999E99D2C63811B002C0819 /* BurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E99C2C63811B002C0819 /* BurseView.swift */; };
+		9999E9A12C638DBC002C0819 /* MiningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A02C638DBC002C0819 /* MiningView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +34,21 @@
 		9999E9702C628CFF002C0819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9999E9722C628D02002C0819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9999E9752C628D02002C0819 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9999E97E2C628DB4002C0819 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9999E9812C628E0A002C0819 /* ImageTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitles.swift; sourceTree = "<group>"; };
+		9999E9842C62902F002C0819 /* TextCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCustom.swift; sourceTree = "<group>"; };
+		9999E9862C629093002C0819 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		9999E9882C6290BF002C0819 /* FontCustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCustomModifier.swift; sourceTree = "<group>"; };
+		9999E98A2C6290D2002C0819 /* ForegroundColorCustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundColorCustomModifier.swift; sourceTree = "<group>"; };
+		9999E98D2C62C266002C0819 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9999E9902C62C28E002C0819 /* DailyRewardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardButton.swift; sourceTree = "<group>"; };
+		9999E9922C62C593002C0819 /* CoinsForAdButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsForAdButton.swift; sourceTree = "<group>"; };
+		9999E9942C62C64C002C0819 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		9999E9962C6360C9002C0819 /* BuyASkinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyASkinButton.swift; sourceTree = "<group>"; };
+		9999E9982C63649C002C0819 /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
+		9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleExtension.swift; sourceTree = "<group>"; };
+		9999E99C2C63811B002C0819 /* BurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurseView.swift; sourceTree = "<group>"; };
+		9999E9A02C638DBC002C0819 /* MiningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +83,8 @@
 			children = (
 				9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */,
 				9999E9702C628CFF002C0819 /* ContentView.swift */,
+				9999E97C2C628D9D002C0819 /* Views */,
+				9999E9802C628DCF002C0819 /* Helpers */,
 				9999E9722C628D02002C0819 /* Assets.xcassets */,
 				9999E9742C628D02002C0819 /* Preview Content */,
 			);
@@ -65,6 +97,67 @@
 				9999E9752C628D02002C0819 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9999E97C2C628D9D002C0819 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9999E98C2C62C23F002C0819 /* Main */,
+				9999E97D2C628DA5002C0819 /* Loading */,
+				9999E9832C629021002C0819 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9999E97D2C628DA5002C0819 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				9999E97E2C628DB4002C0819 /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		9999E9802C628DCF002C0819 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9812C628E0A002C0819 /* ImageTitles.swift */,
+				9999E9862C629093002C0819 /* UIFontExtension.swift */,
+				9999E9882C6290BF002C0819 /* FontCustomModifier.swift */,
+				9999E98A2C6290D2002C0819 /* ForegroundColorCustomModifier.swift */,
+				9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9999E9832C629021002C0819 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9842C62902F002C0819 /* TextCustom.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9999E98C2C62C23F002C0819 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9999E98D2C62C266002C0819 /* MainView.swift */,
+				9999E98F2C62C27B002C0819 /* Subviews */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9999E98F2C62C27B002C0819 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9902C62C28E002C0819 /* DailyRewardButton.swift */,
+				9999E9922C62C593002C0819 /* CoinsForAdButton.swift */,
+				9999E9942C62C64C002C0819 /* TimerView.swift */,
+				9999E9962C6360C9002C0819 /* BuyASkinButton.swift */,
+				9999E9982C63649C002C0819 /* LeagueView.swift */,
+				9999E99C2C63811B002C0819 /* BurseView.swift */,
+				9999E9A02C638DBC002C0819 /* MiningView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +230,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9999E9852C62902F002C0819 /* TextCustom.swift in Sources */,
+				9999E98E2C62C266002C0819 /* MainView.swift in Sources */,
+				9999E9892C6290BF002C0819 /* FontCustomModifier.swift in Sources */,
+				9999E98B2C6290D2002C0819 /* ForegroundColorCustomModifier.swift in Sources */,
+				9999E9912C62C28E002C0819 /* DailyRewardButton.swift in Sources */,
+				9999E9992C63649C002C0819 /* LeagueView.swift in Sources */,
+				9999E99D2C63811B002C0819 /* BurseView.swift in Sources */,
+				9999E9822C628E0A002C0819 /* ImageTitles.swift in Sources */,
+				9999E9972C6360C9002C0819 /* BuyASkinButton.swift in Sources */,
+				9999E9952C62C64C002C0819 /* TimerView.swift in Sources */,
+				9999E9A12C638DBC002C0819 /* MiningView.swift in Sources */,
+				9999E9932C62C593002C0819 /* CoinsForAdButton.swift in Sources */,
 				9999E9712C628CFF002C0819 /* ContentView.swift in Sources */,
 				9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */,
+				9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */,
+				9999E9872C629093002C0819 /* UIFontExtension.swift in Sources */,
+				9999E97F2C628DB4002C0819 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -277,8 +385,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,6 +395,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Nevermind.HamsterKombat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,8 +418,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,6 +428,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Nevermind.HamsterKombat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
