@@ -1,17 +1,14 @@
-//
-//  HamsterKombatApp.swift
-//  HamsterKombat
-//
-//  Created by Николай Щербаков on 06.08.2024.
-//
-
 import SwiftUI
 
 @main
 struct HamsterKombatApp: App {
+    
+    let viewModelFactory = ViewModelFactory()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(viewModel: viewModelFactory.makeMainViewModel())
+                .environmentObject(viewModelFactory)
         }
     }
 }

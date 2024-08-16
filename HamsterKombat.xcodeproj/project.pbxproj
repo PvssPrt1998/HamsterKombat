@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99228B4E2C6F382B009A3C2F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B4D2C6F382B009A3C2F /* GameScene.swift */; };
+		99228B512C6F3849009A3C2F /* KeySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B502C6F3849009A3C2F /* KeySprite.swift */; };
+		99228B532C6F3855009A3C2F /* VerticalCandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B522C6F3855009A3C2F /* VerticalCandle.swift */; };
+		99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B542C6F385F009A3C2F /* HorizontalCandle.swift */; };
+		99228B572C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B562C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift */; };
 		9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */; };
 		9999E9712C628CFF002C0819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9702C628CFF002C0819 /* ContentView.swift */; };
 		9999E9732C628D02002C0819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9722C628D02002C0819 /* Assets.xcassets */; };
@@ -26,9 +31,35 @@
 		9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */; };
 		9999E99D2C63811B002C0819 /* BurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E99C2C63811B002C0819 /* BurseView.swift */; };
 		9999E9A12C638DBC002C0819 /* MiningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A02C638DBC002C0819 /* MiningView.swift */; };
+		9999E9A42C63FD26002C0819 /* ProfessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A32C63FD26002C0819 /* ProfessionView.swift */; };
+		9999E9A62C64288D002C0819 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A52C64288D002C0819 /* MainViewModel.swift */; };
+		9999E9A82C64BF2D002C0819 /* ProfessionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A72C64BF2D002C0819 /* ProfessionDetailsView.swift */; };
+		9999E9E12C68DE7B002C0819 /* ProfessionViewDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9E02C68DE7B002C0819 /* ProfessionViewDescription.swift */; };
+		9999E9E42C68F77F002C0819 /* Hamster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9E32C68F77F002C0819 /* Hamster.swift */; };
+		9999E9E62C68F8EB002C0819 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9E52C68F8EB002C0819 /* DataManager.swift */; };
+		9999E9E92C6904E2002C0819 /* BurseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9E82C6904E2002C0819 /* BurseViewModel.swift */; };
+		9999E9EB2C690706002C0819 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9EA2C690705002C0819 /* ViewModelFactory.swift */; };
+		9999E9EE2C690EF5002C0819 /* SkinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9ED2C690EF5002C0819 /* SkinsViewModel.swift */; };
+		9999E9F02C690F24002C0819 /* SkinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9EF2C690F24002C0819 /* SkinsView.swift */; };
+		9999E9F22C691001002C0819 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9F12C691001002C0819 /* CloseButton.swift */; };
+		9999E9F42C691453002C0819 /* SelectedSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9F32C691453002C0819 /* SelectedSkinView.swift */; };
+		9999E9F72C6916A0002C0819 /* SelectedSkinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9F62C6916A0002C0819 /* SelectedSkinViewModel.swift */; };
+		9999E9FA2C6925B3002C0819 /* SkinsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9F92C6925B3002C0819 /* SkinsListViewModel.swift */; };
+		9999E9FC2C6925C7002C0819 /* SkinsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9FB2C6925C7002C0819 /* SkinsListView.swift */; };
+		9999E9FE2C6926A4002C0819 /* SkinListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9FD2C6926A4002C0819 /* SkinListItemView.swift */; };
+		9999EA002C6A035E002C0819 /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9FF2C6A035E002C0819 /* EnvironmentValues.swift */; };
+		9999EA032C6A0929002C0819 /* MiniGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA022C6A0929002C0819 /* MiniGameView.swift */; };
+		9999EA052C6A0EAF002C0819 /* MiniGameLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */; };
+		9999EA082C6A0FD9002C0819 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA072C6A0FD9002C0819 /* GameView.swift */; };
+		99EB82622C6A26DB00147F23 /* SpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB82612C6A26DB00147F23 /* SpaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		99228B4D2C6F382B009A3C2F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		99228B502C6F3849009A3C2F /* KeySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySprite.swift; sourceTree = "<group>"; };
+		99228B522C6F3855009A3C2F /* VerticalCandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCandle.swift; sourceTree = "<group>"; };
+		99228B542C6F385F009A3C2F /* HorizontalCandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCandle.swift; sourceTree = "<group>"; };
+		99228B562C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeWithBounds.swift; sourceTree = "<group>"; };
 		9999E96B2C628CFF002C0819 /* HamsterKombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamsterKombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterKombatApp.swift; sourceTree = "<group>"; };
 		9999E9702C628CFF002C0819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +80,27 @@
 		9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleExtension.swift; sourceTree = "<group>"; };
 		9999E99C2C63811B002C0819 /* BurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurseView.swift; sourceTree = "<group>"; };
 		9999E9A02C638DBC002C0819 /* MiningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningView.swift; sourceTree = "<group>"; };
+		9999E9A32C63FD26002C0819 /* ProfessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionView.swift; sourceTree = "<group>"; };
+		9999E9A52C64288D002C0819 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		9999E9A72C64BF2D002C0819 /* ProfessionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionDetailsView.swift; sourceTree = "<group>"; };
+		9999E9E02C68DE7B002C0819 /* ProfessionViewDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionViewDescription.swift; sourceTree = "<group>"; };
+		9999E9E32C68F77F002C0819 /* Hamster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hamster.swift; sourceTree = "<group>"; };
+		9999E9E52C68F8EB002C0819 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9999E9E82C6904E2002C0819 /* BurseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurseViewModel.swift; sourceTree = "<group>"; };
+		9999E9EA2C690705002C0819 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		9999E9ED2C690EF5002C0819 /* SkinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsViewModel.swift; sourceTree = "<group>"; };
+		9999E9EF2C690F24002C0819 /* SkinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsView.swift; sourceTree = "<group>"; };
+		9999E9F12C691001002C0819 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		9999E9F32C691453002C0819 /* SelectedSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSkinView.swift; sourceTree = "<group>"; };
+		9999E9F62C6916A0002C0819 /* SelectedSkinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSkinViewModel.swift; sourceTree = "<group>"; };
+		9999E9F92C6925B3002C0819 /* SkinsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsListViewModel.swift; sourceTree = "<group>"; };
+		9999E9FB2C6925C7002C0819 /* SkinsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsListView.swift; sourceTree = "<group>"; };
+		9999E9FD2C6926A4002C0819 /* SkinListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinListItemView.swift; sourceTree = "<group>"; };
+		9999E9FF2C6A035E002C0819 /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
+		9999EA022C6A0929002C0819 /* MiniGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameView.swift; sourceTree = "<group>"; };
+		9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameLaunchView.swift; sourceTree = "<group>"; };
+		9999EA072C6A0FD9002C0819 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		99EB82612C6A26DB00147F23 /* SpaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +114,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99228B4C2C6F3815009A3C2F /* MiniGameScene */ = {
+			isa = PBXGroup;
+			children = (
+				99228B4D2C6F382B009A3C2F /* GameScene.swift */,
+				99228B4F2C6F3838009A3C2F /* Subclasses */,
+			);
+			path = MiniGameScene;
+			sourceTree = "<group>";
+		};
+		99228B4F2C6F3838009A3C2F /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				99228B502C6F3849009A3C2F /* KeySprite.swift */,
+				99228B522C6F3855009A3C2F /* VerticalCandle.swift */,
+				99228B542C6F385F009A3C2F /* HorizontalCandle.swift */,
+				99228B562C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		9999E9622C628CFF002C0819 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */,
+				9999E9E52C68F8EB002C0819 /* DataManager.swift */,
+				9999E9EA2C690705002C0819 /* ViewModelFactory.swift */,
+				9999E9E22C68F0B4002C0819 /* Model */,
 				9999E9702C628CFF002C0819 /* ContentView.swift */,
 				9999E97C2C628D9D002C0819 /* Views */,
 				9999E9802C628DCF002C0819 /* Helpers */,
@@ -125,6 +200,7 @@
 				9999E9882C6290BF002C0819 /* FontCustomModifier.swift */,
 				9999E98A2C6290D2002C0819 /* ForegroundColorCustomModifier.swift */,
 				9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */,
+				9999E9FF2C6A035E002C0819 /* EnvironmentValues.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -140,6 +216,7 @@
 		9999E98C2C62C23F002C0819 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9999E9A52C64288D002C0819 /* MainViewModel.swift */,
 				9999E98D2C62C266002C0819 /* MainView.swift */,
 				9999E98F2C62C27B002C0819 /* Subviews */,
 			);
@@ -149,15 +226,104 @@
 		9999E98F2C62C27B002C0819 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				9999EA012C6A0916002C0819 /* MiniGame */,
+				9999E9EC2C690EE1002C0819 /* SkinsView */,
+				9999E9E72C690496002C0819 /* BurseView */,
+				9999E9A22C63FCBD002C0819 /* Mining */,
 				9999E9902C62C28E002C0819 /* DailyRewardButton.swift */,
 				9999E9922C62C593002C0819 /* CoinsForAdButton.swift */,
 				9999E9942C62C64C002C0819 /* TimerView.swift */,
 				9999E9962C6360C9002C0819 /* BuyASkinButton.swift */,
 				9999E9982C63649C002C0819 /* LeagueView.swift */,
-				9999E99C2C63811B002C0819 /* BurseView.swift */,
-				9999E9A02C638DBC002C0819 /* MiningView.swift */,
+				9999E9F12C691001002C0819 /* CloseButton.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9999E9A22C63FCBD002C0819 /* Mining */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9DF2C68DE5D002C0819 /* ProfessionViewSubviews */,
+				9999E9A02C638DBC002C0819 /* MiningView.swift */,
+				9999E9A32C63FD26002C0819 /* ProfessionView.swift */,
+				9999E9A72C64BF2D002C0819 /* ProfessionDetailsView.swift */,
+			);
+			path = Mining;
+			sourceTree = "<group>";
+		};
+		9999E9DF2C68DE5D002C0819 /* ProfessionViewSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9E02C68DE7B002C0819 /* ProfessionViewDescription.swift */,
+			);
+			path = ProfessionViewSubviews;
+			sourceTree = "<group>";
+		};
+		9999E9E22C68F0B4002C0819 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9E32C68F77F002C0819 /* Hamster.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9999E9E72C690496002C0819 /* BurseView */ = {
+			isa = PBXGroup;
+			children = (
+				9999E99C2C63811B002C0819 /* BurseView.swift */,
+				9999E9E82C6904E2002C0819 /* BurseViewModel.swift */,
+			);
+			path = BurseView;
+			sourceTree = "<group>";
+		};
+		9999E9EC2C690EE1002C0819 /* SkinsView */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9F82C69259C002C0819 /* SkinsList */,
+				9999E9F52C691683002C0819 /* SelectedSkin */,
+				9999E9ED2C690EF5002C0819 /* SkinsViewModel.swift */,
+				9999E9EF2C690F24002C0819 /* SkinsView.swift */,
+			);
+			path = SkinsView;
+			sourceTree = "<group>";
+		};
+		9999E9F52C691683002C0819 /* SelectedSkin */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9F32C691453002C0819 /* SelectedSkinView.swift */,
+				9999E9F62C6916A0002C0819 /* SelectedSkinViewModel.swift */,
+			);
+			path = SelectedSkin;
+			sourceTree = "<group>";
+		};
+		9999E9F82C69259C002C0819 /* SkinsList */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9F92C6925B3002C0819 /* SkinsListViewModel.swift */,
+				9999E9FB2C6925C7002C0819 /* SkinsListView.swift */,
+				9999E9FD2C6926A4002C0819 /* SkinListItemView.swift */,
+			);
+			path = SkinsList;
+			sourceTree = "<group>";
+		};
+		9999EA012C6A0916002C0819 /* MiniGame */ = {
+			isa = PBXGroup;
+			children = (
+				9999EA062C6A0FCC002C0819 /* GameView */,
+				9999EA022C6A0929002C0819 /* MiniGameView.swift */,
+				9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */,
+			);
+			path = MiniGame;
+			sourceTree = "<group>";
+		};
+		9999EA062C6A0FCC002C0819 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				99228B4C2C6F3815009A3C2F /* MiniGameScene */,
+				9999EA072C6A0FD9002C0819 /* GameView.swift */,
+				99EB82612C6A26DB00147F23 /* SpaceController.swift */,
+			);
+			path = GameView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,22 +397,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				9999E9852C62902F002C0819 /* TextCustom.swift in Sources */,
+				9999E9EE2C690EF5002C0819 /* SkinsViewModel.swift in Sources */,
 				9999E98E2C62C266002C0819 /* MainView.swift in Sources */,
 				9999E9892C6290BF002C0819 /* FontCustomModifier.swift in Sources */,
+				9999E9EB2C690706002C0819 /* ViewModelFactory.swift in Sources */,
+				9999E9A82C64BF2D002C0819 /* ProfessionDetailsView.swift in Sources */,
+				99EB82622C6A26DB00147F23 /* SpaceController.swift in Sources */,
 				9999E98B2C6290D2002C0819 /* ForegroundColorCustomModifier.swift in Sources */,
+				9999E9E62C68F8EB002C0819 /* DataManager.swift in Sources */,
 				9999E9912C62C28E002C0819 /* DailyRewardButton.swift in Sources */,
+				99228B512C6F3849009A3C2F /* KeySprite.swift in Sources */,
+				9999EA032C6A0929002C0819 /* MiniGameView.swift in Sources */,
 				9999E9992C63649C002C0819 /* LeagueView.swift in Sources */,
 				9999E99D2C63811B002C0819 /* BurseView.swift in Sources */,
+				9999EA002C6A035E002C0819 /* EnvironmentValues.swift in Sources */,
 				9999E9822C628E0A002C0819 /* ImageTitles.swift in Sources */,
+				99228B572C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift in Sources */,
 				9999E9972C6360C9002C0819 /* BuyASkinButton.swift in Sources */,
+				9999E9FC2C6925C7002C0819 /* SkinsListView.swift in Sources */,
 				9999E9952C62C64C002C0819 /* TimerView.swift in Sources */,
+				9999E9F42C691453002C0819 /* SelectedSkinView.swift in Sources */,
+				9999E9A42C63FD26002C0819 /* ProfessionView.swift in Sources */,
 				9999E9A12C638DBC002C0819 /* MiningView.swift in Sources */,
+				99228B532C6F3855009A3C2F /* VerticalCandle.swift in Sources */,
+				99228B4E2C6F382B009A3C2F /* GameScene.swift in Sources */,
+				9999E9E12C68DE7B002C0819 /* ProfessionViewDescription.swift in Sources */,
 				9999E9932C62C593002C0819 /* CoinsForAdButton.swift in Sources */,
+				9999E9F22C691001002C0819 /* CloseButton.swift in Sources */,
+				9999E9F72C6916A0002C0819 /* SelectedSkinViewModel.swift in Sources */,
+				9999EA052C6A0EAF002C0819 /* MiniGameLaunchView.swift in Sources */,
+				9999E9A62C64288D002C0819 /* MainViewModel.swift in Sources */,
+				9999E9FE2C6926A4002C0819 /* SkinListItemView.swift in Sources */,
+				9999E9E42C68F77F002C0819 /* Hamster.swift in Sources */,
 				9999E9712C628CFF002C0819 /* ContentView.swift in Sources */,
+				9999E9FA2C6925B3002C0819 /* SkinsListViewModel.swift in Sources */,
 				9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */,
+				9999E9E92C6904E2002C0819 /* BurseViewModel.swift in Sources */,
+				99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */,
 				9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */,
 				9999E9872C629093002C0819 /* UIFontExtension.swift in Sources */,
+				9999EA082C6A0FD9002C0819 /* GameView.swift in Sources */,
 				9999E97F2C628DB4002C0819 /* LoadingView.swift in Sources */,
+				9999E9F02C690F24002C0819 /* SkinsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
