@@ -104,6 +104,9 @@ struct BurseView: View {
                 }
                 HStack(spacing: 9) {
                     Image(ImageTitles.LightningIcon.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 33, height: 33)
                     HStack(spacing: 0) {
                         TextCustom(text: viewModel.hiddenEnergyString(), size: 16, weight: .semibold, color: .white)
                             .hidden()
@@ -115,6 +118,9 @@ struct BurseView: View {
                     Spacer()
                     HStack(spacing: 9) {
                         Image(ImageTitles.RocketIcon.rawValue)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 33, height: 33)
                         TextCustom(text: "Boost", size: 16, weight: .semibold, color: .white)
                     }
                     .onTapGesture {

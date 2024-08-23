@@ -16,7 +16,6 @@ final class ProfessionDetailsViewModel: ObservableObject {
     }
     
     func comboCheck(_ id: Int) {
-        print(dataManager.combo)
         for index in 0..<dataManager.combo.count {
             if dataManager.combo[index].0 == id && !dataManager.combo[index].1 {
                 dataManager.combo[index].1 = true
