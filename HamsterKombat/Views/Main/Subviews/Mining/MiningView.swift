@@ -87,32 +87,38 @@ struct MiningView: View {
                     VStack(spacing: 10) {
                         HStack(spacing: 10) {
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 0)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 0
                                 showProfessionDetail = true
                             }
                                            
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 1)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 1
                                 showProfessionDetail = true
                             }
                         }
                         HStack(spacing: 10) {
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 2)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 2
                                 showProfessionDetail = true
                             }
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 3)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 3
                                 showProfessionDetail = true
                             }
                         }
                         HStack(spacing: 10) {
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 4)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 4
                                 showProfessionDetail = true
                             }
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 5), lockedText: viewModel.getProfession(by: 4).level >= 5 ? nil : "HamsterBook lvl 5") {
                                 if viewModel.getProfession(by: 4).level >= 5 {
+                                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                     professionId = 5
                                     showProfessionDetail = true
                                 }
@@ -120,10 +126,12 @@ struct MiningView: View {
                         }
                         HStack(spacing: 10) {
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 6)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 6
                                 showProfessionDetail = true
                             }
                             ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 7)) {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                                 professionId = 7
                                 showProfessionDetail = true
                             }

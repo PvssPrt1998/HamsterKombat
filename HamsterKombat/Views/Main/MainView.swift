@@ -79,6 +79,7 @@ struct MainView: View {
                 .clipShape(.rect(cornerRadius: 6))
                 .onTapGesture {
                     if viewModel.screenType != .burse {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         viewModel.screenType = .burse
                     }
                 }
@@ -95,6 +96,7 @@ struct MainView: View {
                 .clipShape(.rect(cornerRadius: 6))
                 .onTapGesture {
                     if viewModel.screenType != .mining {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         viewModel.screenType = .mining
                     }
                 }

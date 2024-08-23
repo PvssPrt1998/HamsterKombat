@@ -16,6 +16,7 @@ struct BurseView: View {
                 //MARK: - three buttons on top of sheet
                 HStack(spacing: 12) {
                     Button {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         showDailyReward = true
                     } label: {
                         Image(ImageTitles.ButtonRectangleWithInnerShadow.rawValue)
@@ -30,6 +31,7 @@ struct BurseView: View {
                     }
                     
                     Button {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         screenType = .mining
                     } label: {
                         Image(ImageTitles.ButtonRectangleWithInnerShadow.rawValue)
@@ -45,6 +47,7 @@ struct BurseView: View {
                         
                     Button {
                         if viewModel.miniGameAvailable {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             showMiniGame = true
                         }
                     } label: {
