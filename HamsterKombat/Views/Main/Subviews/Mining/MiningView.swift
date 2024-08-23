@@ -14,7 +14,7 @@ struct MiningView: View {
         ZStack {
             VStack(spacing: 6) {
                 HStack(spacing: 3) {
-                    TextCustom(text: "00:09:59", size: 10, weight: .bold, color: .white.opacity(0.4))
+                    TextCustom(text: viewModel.reloadTime(), size: 10, weight: .bold, color: .white.opacity(0.4))
                     Image(ImageTitles.WarningFilledIcon.rawValue)
                         .resizable()
                         .frame(width: 16, height: 16)
@@ -33,15 +33,15 @@ struct MiningView: View {
                         Circle()
                             .fill(Color.comboCircle)
                             .padding(3)
-                            .background(Circle().fill(Color.comboCircleBorder))
+                            .background(Circle().fill(viewModel.comboAmount >= 1 ? Color.green : Color.comboCircleBorder))
                         Circle()
                             .fill(Color.comboCircle)
                             .padding(3)
-                            .background(Circle().fill(Color.comboCircleBorder))
+                            .background(Circle().fill(viewModel.comboAmount >= 2 ? Color.green : Color.comboCircleBorder))
                         Circle()
                             .fill(Color.comboCircle)
                             .padding(3)
-                            .background(Circle().fill(Color.comboCircleBorder))
+                            .background(Circle().fill(viewModel.comboAmount >= 3 ? Color.green : Color.comboCircleBorder))
                     }
                     .frame(height: 16)
                     
@@ -52,7 +52,7 @@ struct MiningView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 21, height: 21)
-                        TextCustom(text: "+5 000 000", size: 12, weight: .bold, color: .white)
+                        TextCustom(text: "+20 000", size: 12, weight: .bold, color: .white)
                     }
                     .padding(EdgeInsets(top: 5, leading: 6, bottom: 5, trailing: 6))
                     .background(

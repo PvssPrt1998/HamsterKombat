@@ -64,19 +64,4 @@ final class ProfessionViewModel: ObservableObject {
         }
         return balanceStr
     }
-//    
-//    func textPrice(for id: Int) -> String {
-//        var priceStr = ""
-//        let price = dataManager.professtions[id].price
-//        if price / 1000000000 >= 1 {
-//            priceStr = "\(price/1000000000)B"
-//        } else if price / 1000000 >= 1 {
-//            priceStr = "\(price/1000000)M"
-//        } else if price / 1000 >= 1 {
-//            priceStr = "\(price/1000)K"
-//        } else {
-//            priceStr = "\(price)"
-//        }
-//        return priceStr
-//    }
 }

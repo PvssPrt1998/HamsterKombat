@@ -80,7 +80,7 @@ struct FillEnergyView: View {
                     Button {
                         viewModel.tapValueLevelUp()
                     } label: {
-                        HStack(spacing: 3) {
+                        HStack(spacing: 8) {
                             TextCustom(text: "Multitap", size: 24, weight: .bold, color: .white)
                             Image(viewModel.balance >= viewModel.tapValueLevelPrice ? ImageTitles.CoinDollarIcon.rawValue : ImageTitles.SilverCoin.rawValue)
                                 .resizable()
@@ -99,8 +99,8 @@ struct FillEnergyView: View {
                     Button {
                         viewModel.maxEnergyLevelUp()
                     } label: {
-                        HStack(spacing: 3) {
-                            TextCustom(text: "Multitap", size: 24, weight: .bold, color: .white)
+                        HStack(spacing: 8) {
+                            TextCustom(text: "Max energy", size: 24, weight: .bold, color: .white)
                             Image(viewModel.balance >= viewModel.maxEnergyLevelPrice ? ImageTitles.CoinDollarIcon.rawValue : ImageTitles.SilverCoin.rawValue)
                                 .resizable()
                                 .scaledToFit()
@@ -133,7 +133,6 @@ struct FillEnergyView: View {
             .ignoresSafeArea(.container, edges: .bottom)
             .offset(x: 0, y: sheetSizeManager.topPadding)
             .onAppear {
-                print(viewModel.dataManager.energyTimer)
                 sheetSizeManager.appearance()
             }
         }
@@ -157,27 +156,33 @@ final class FillEnergyViewModel: ObservableObject {
     
     @Published var balance: Int
     
-    var tapValueLevelPrice: Int {
-        dataManager.tapValueLevelPrice
-    }
+    @Published var tapValueLevelPrice: Int
     
-    var maxEnergyLevelPrice: Int {
-        dataManager.maxEnergyLevelPrice
-    }
+    @Published var maxEnergyLevelPrice: Int
     
     private var balanceCancellable: AnyCancellable?
     
     private var timerCancellable: AnyCancellable?
+    private var tapValueLevelPriceCancellable: AnyCancellable?
+    private var maxEnergyLevelPriceCancellable: AnyCancellable?
     
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         timerValue = dataManager.energyTimer
+        tapValueLevelPrice = dataManager.tapValueLevelPrice
+        maxEnergyLevelPrice = dataManager.maxEnergyLevelPrice
         balance = dataManager.balance
         timerCancellable = dataManager.$energyTimer.sink { [weak self] value in
             self?.timerValue = value
         }
         balanceCancellable = dataManager.$balance.sink { [weak self] value in
             self?.balance = value
+        }
+        tapValueLevelPriceCancellable = dataManager.$tapValueLevelPrice.sink { [weak self] value in
+            self?.tapValueLevelPrice = value
+        }
+        maxEnergyLevelPriceCancellable = dataManager.$maxEnergyLevelPrice.sink { [weak self] value in
+            self?.maxEnergyLevelPrice = value
         }
     }
     

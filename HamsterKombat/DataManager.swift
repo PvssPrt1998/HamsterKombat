@@ -5,28 +5,32 @@ final class DataManager: ObservableObject {
     let localStorage = LocalStorage()
     @Published var localDataLoaded = false
     
-    @Published var leagueId: Int
-    @Published var balance: Int {
+    @Published var leagueId: Int = 0
+    @Published var balance: Int = 0 {
         didSet {
             leagueCheck()
         }
     }
     @Published var rewardPerHour: Int = 0
-    @Published var energy: Int
+    @Published var energy: Int = 1500
     @Published var energyTimer: Int = 0
     
+    @Published var combo: Array<(Int,Bool)> = []
+    var comboIssued: Bool = false
+    
     @AppStorage("firstLaunch") var firstLaunch = true
-    @AppStorage("maxEnergyLevel") var maxEnergyLevel = 1
-    @AppStorage("maxEnergy") var maxEnergy = 1500
-    var maxEnergyLevelPrice = 2000
+    
+    var maxEnergyLevel = 1
+    var maxEnergy = 1500
+    @Published var maxEnergyLevelPrice = 2000
     
     @Published var miniGameTimer: Int = 60
     @Published var miniGameReloadTimer: Int = 0
-    @AppStorage("tapValue") var tapValue: Int = 1
-    @AppStorage("tapValueLevel") var tapValueLevel: Int = 1
-    var tapValueLevelPrice: Int = 1000
+    var tapValue: Int = 1
+    var tapValueLevel: Int = 1
+    @Published var tapValueLevelPrice: Int = 1000
     
-    var toNextDayTimer: Int = 0
+    @Published var toNextDayTimer: Int = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -39,15 +43,7 @@ final class DataManager: ObservableObject {
     
     var dateString: String = "21.08.2024.00.00"
 
-    @AppStorage("toNextDayTimerSaved") var toNextDayTimerSaved: Int = 0
-    @AppStorage("miniGameReloadTimerSaved") var miniGameReloadTimerSaved: Int = 0
-    @AppStorage("energyTimerSaved") var energyTimerSaved: Int = 0
-    @AppStorage("dayIndexSaved") var dayIndexSaved: Int = 0
-    @AppStorage("dateStringSaved") var dateStringSaved: String = "21.08.2024.00.00"
-    @AppStorage("balanceSaved") var balanceSaved: Int = 0
-    @AppStorage("leagueIdSaved") var leagueIdSaved = 0
-    @AppStorage("energySaved") var energySaved: Int = 1500
-    @AppStorage("selectedHamsterId") var selectedHamsterId: Int = 0
+    var selectedHamsterId: Int = 0
     
     @Published var rewards: Array<Day> = [
         Day(reward: 500, got: true),
@@ -94,28 +90,12 @@ final class DataManager: ObservableObject {
             Profession(id: 6, level: 0, tilte: "Х", description: "Increase the presence of your exchange on Twitter", profit: 80, price: 550, initialPrice: 550, initialProfit: 80, totalProfit: 0),
             Profession(id: 7, level: 0, tilte: "Cointelegraph", description: "Lvl 1", profit: 40, price: 350, initialPrice: 350, initialProfit: 40, totalProfit: 0)
         ]
-    
-        self.leagueId = 0
-        self.balance = 0
-        self.energy = 1500
+
         self.selectedHamster = hamsters[0]
-        
-        dayIndex = dayIndexSaved
-        energy = energySaved
-        balance = balanceSaved
-        //balance = 100000000
-        energyTimer = energyTimerSaved
-        print(energyTimerSaved)
-        dailyRewardInitialCheck()
-        setTapValueLevelPrice()
-        setEnergyLevelPrice()
-        leagueCheck()
-        miniGameReloadTimerCheck()
-        energyFillRestoreTimerCheck()
-        
-        checkSelectedHamsterId()
-        energyCheck()
-        
+        toNextDayTimer = secondsForNextDay()
+    }
+    
+    func firstLaunchPrepares() {
         if firstLaunch {
             self.hamsters.forEach { hamster in
                 localStorage.saveHamster(hamster)
@@ -123,32 +103,61 @@ final class DataManager: ObservableObject {
             self.professions.forEach { profession in
                 localStorage.saveProfession(profession)
             }
+            localStorage.editEnergyLevel(maxEnergy, energyLevel: maxEnergyLevel)
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+            dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
+            let dateString = dateFormatter.string(from: Date())
+            localStorage.saveSavedDate(dateString)
+            localStorage.editTapValue(1, tapValueLevel: 1)
+            var numbersArray: Array<Int> = [0, 1, 2, 3, 4, 5, 6, 7]
+            let first = Int.random(in: 0...7)
+            combo.append((numbersArray[first], false))
+            numbersArray.remove(at: first)
+            let second = Int.random(in: 0...6)
+            combo.append((numbersArray[second],false))
+            numbersArray.remove(at: second)
+            let third = Int.random(in: 0...5)
+            combo.append((numbersArray[third],false))
+            numbersArray.remove(at: third)
+            localStorage.save(combo: combo)
         }
-        
         firstLaunch = false
     }
     
+    func setDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
+        let dateString = dateFormatter.string(from: Date())
+        self.dateString = dateString
+    }
+    
     func saveData() {
-        balanceSaved = balance
-        dateStringSaved = dateString
-        miniGameReloadTimerSaved = miniGameReloadTimer
-        energySaved = energy
-        energyTimerSaved = energyTimer
-        toNextDayTimerSaved = toNextDayTimer
+        setDate()
         localStorage.saveBalance(balance)
+        localStorage.save(combo: combo)
+        localStorage.saveSavedDate(dateString)
+        localStorage.saveMiniGameTimer(miniGameReloadTimer)
+        localStorage.saveEnergyFillRestoreTimer(energyTimer)
+        localStorage.saveEnergy(energy)
+        localStorage.saveBalance(balance)
+        localStorage.saveDayIndex(dayIndex)
+        localStorage.saveParameters(leagueId: leagueId, selectedHamsterId: selectedHamsterId)
     }
     
     func energyFillRestoreTimerCheck() {
         let offlineSeconds = secondsFromSavedDate()
-        energyTimer = max(energyTimerSaved - offlineSeconds, 0)
+        energyTimer = max(energyTimer - offlineSeconds, 0)
     }
     
     func energyCheck() {
         let offlineEnergy = secondsFromSavedDate() * 3
-        energy = min(maxEnergy, energySaved + offlineEnergy)
+        energy = min(maxEnergy, energy + offlineEnergy)
     }
     
     func loadLocalData() {
+        firstLaunchPrepares()
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else { return }
             if let professionsCoreData = try? localStorage.fetchProfessions() {
@@ -164,16 +173,85 @@ final class DataManager: ObservableObject {
                     self.hamsters[Int(hamsterCoreData.id)].isAvailable = hamsterCoreData.available
                 }
             }
-            if let balance = try? localStorage.fetchBalance() {
-                print(balance)
+            if let savedDate = try? localStorage.fetchSavedDate() {
+                self.dateString = savedDate
             }
+            if let balance = try? localStorage.fetchBalance() {
+                self.balance = balance
+            }
+            if let energy = try? localStorage.fetchEnergy() {
+                self.energy = energy
+            }
+            if let miniGameReloadTimer = try? localStorage.fetchMiniGameTimer() {
+                self.miniGameReloadTimer = miniGameReloadTimer
+            }
+            if let energyFillRestoreTimer = try? localStorage.fetchEnergyFillRestoreTimer() {
+                self.energyTimer = energyFillRestoreTimer
+            }
+            if let dayIndex = try? localStorage.fetchDayIndex() {
+                self.dayIndex = dayIndex
+            }
+            if let energyLevel = try? localStorage.fetchEnergyLevel() {
+                self.maxEnergyLevel = Int(energyLevel.maxEnergyLevel)
+                self.maxEnergy = Int(energyLevel.maxEnergy)
+            }
+            if let parameters = try? localStorage.fetchParameters() {
+                self.leagueId = Int(parameters.leagueId)
+                self.selectedHamsterId = Int(parameters.selectedHamsterId)
+            }
+            if let tapValue = try? localStorage.fetchTapValue() {
+                self.tapValue = Int(tapValue.tapValue)
+                self.tapValueLevel = Int(tapValue.tapValueLevel)
+            }
+            
             self.rewardPerHour = professions.map({ profession in
                 profession.totalProfit
             }).reduce(0, +)
             self.getRewardPerHourInitial()
             
+            energyFillRestoreTimerCheck()
+            energyCheck()
+            miniGameReloadTimerCheck()
+            setEnergyLevelPrice()
+            leagueCheck()
+            checkSelectedHamsterId()
+            dailyRewardInitialCheck()
+            setTapValueLevelPrice()
+            comboFillCheck()
             DispatchQueue.main.async {
                 self.localDataLoaded = true
+            }
+        }
+    }
+    
+    func comboFillCheck() {
+        let dateStringSaved = self.dateString.components(separatedBy: ".")
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
+        let dateString = dateFormatter.string(from: Date())
+        let dateStringComponents = dateString.components(separatedBy: ".")
+        guard let savedDate = stringToDate() else { return }
+        if savedDate < Date() {
+            if dateStringSaved[0] != dateStringComponents[0] ||
+                dateStringSaved[1] != dateStringComponents[1] ||
+                dateStringSaved[2] != dateStringComponents[2] {
+                var numbersArray: Array<Int> = [0, 1, 2, 3, 4, 5, 6, 7]
+                let first = Int.random(in: 0...7)
+                combo.append((numbersArray[first] , false))
+                numbersArray.remove(at: first)
+                let second = Int.random(in: 0...6)
+                combo.append((numbersArray[second] , false))
+                numbersArray.remove(at: second)
+                let third = Int.random(in: 0...5)
+                combo.append((numbersArray[third] , false))
+                numbersArray.remove(at: third)
+                comboIssued = false
+                localStorage.save(combo: combo)
+            } else {
+                if let comboCoreData = try? localStorage.fetchCombo() {
+                    combo = comboCoreData
+                }
             }
         }
     }
@@ -258,15 +336,19 @@ final class DataManager: ObservableObject {
     }
     
     func tapValueLevelUp() {
+        balance -= tapValueLevelPrice
         tapValue += 1
         tapValueLevel += 1
         tapValueLevelPrice *= 2
+        localStorage.editTapValue(tapValue, tapValueLevel: tapValueLevel)
     }
     
     func maxEnergyLevelUp() {
+        balance -= maxEnergyLevelPrice
         maxEnergy += 500
         maxEnergyLevel += 1
         maxEnergyLevelPrice *= 2
+        localStorage.editEnergyLevel(maxEnergy, energyLevel: maxEnergyLevel)
     }
     
     func getValueForNewLeague() -> Int {
@@ -286,7 +368,6 @@ final class DataManager: ObservableObject {
     }
     
     func leagueCheck() {
-        var leagueId = leagueIdSaved
         switch balance {
         case 0..<5000: leagueId = 0
         case 5000..<25000: leagueId = 1
@@ -374,11 +455,9 @@ final class DataManager: ObservableObject {
         dailyRewardDay = day
         if !rewards[dayIndex].got || dayIndex == 9 {
             dayIndex = 0
-            dayIndexSaved = 0
             resetDailyRewards()
         } else {
             dayIndex += 1
-            dayIndexSaved = dayIndex
         }
     }
     

@@ -67,6 +67,7 @@ struct BurseView: View {
                                 }
                             )
                     }
+                    .disabled(!viewModel.miniGameAvailable)
                 }
                 .padding(.top, 38)
             

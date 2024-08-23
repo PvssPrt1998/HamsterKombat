@@ -15,6 +15,27 @@ final class ProfessionDetailsViewModel: ObservableObject {
         }
     }
     
+    func comboCheck(_ id: Int) {
+        print(dataManager.combo)
+        for index in 0..<dataManager.combo.count {
+            if dataManager.combo[index].0 == id && !dataManager.combo[index].1 {
+                dataManager.combo[index].1 = true
+                dataManager.localStorage.save(combo: dataManager.combo)
+                
+                var amount = 0
+                dataManager.combo.forEach { (i,j) in
+                    if j {
+                        amount += 1
+                    }
+                }
+                if amount == 3 {
+                    dataManager.balance += 20000
+                }
+            }
+        }
+        
+    }
+    
     func getProfession(by id: Int) -> Profession {
         dataManager.professions[id]
     }
@@ -52,6 +73,7 @@ final class ProfessionDetailsViewModel: ObservableObject {
     }
     
     func buttonPressed(id: Int) {
+        comboCheck(id)
         dataManager.professionLevelUp(id: id)
     }
 }

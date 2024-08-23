@@ -27,6 +27,12 @@ final class MainViewModel: ObservableObject {
         dataManager.professions[index]
     }
     
+    func toNextDayTimer() {
+        if dataManager.toNextDayTimer > 0 {
+            dataManager.toNextDayTimer -= 1
+        }
+    }
+    
     func getProfessionImageTitle(by index: Int) -> String {
         dataManager.professionImageTitleLarge(id: index)
     }
@@ -37,8 +43,8 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    func toNextDayTimer() {
-        
+    func saveData() {
+        dataManager.saveData()
     }
     
     func energyReloadTimer() {
@@ -50,10 +56,7 @@ final class MainViewModel: ObservableObject {
     func getTimer() ->  Publishers.Autoconnect<Timer.TimerPublisher> {
         return dataManager.timer
     }
-    
-    func saveData() {
-        dataManager.saveData()
-    }
+
     
     func addEveryHourReward(_ date: Date) {
         let dateFormatter = DateFormatter()

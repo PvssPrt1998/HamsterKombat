@@ -3,11 +3,26 @@
     <entity name="Balance" representedClassName=".Balance" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Combo" representedClassName=".Combo" syncable="YES">
+        <attribute name="first" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstGot" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="second" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="secondGot" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="third" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="thirdGot" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DayIndex" representedClassName=".DayIndex" syncable="YES">
+        <attribute name="dayIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="EnergyCoreData" representedClassName=".EnergyCoreData" syncable="YES">
         <attribute name="energy" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="EnergyFillRestoreTimerCoreData" representedClassName=".EnergyFillRestoreTimerCoreData" syncable="YES">
         <attribute name="energyFillRestoreTimer" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="EnergyLevel" representedClassName=".EnergyLevel" syncable="YES">
+        <attribute name="maxEnergy" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="maxEnergyLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="HamsterCoreData" representedClassName=".HamsterCoreData" syncable="YES">
         <attribute name="available" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -16,11 +31,22 @@
     <entity name="MiniGameTimerCoreData" representedClassName=".MiniGameTimerCoreData" syncable="YES">
         <attribute name="miniGameTimer" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Parameters" representedClassName=".Parameters" syncable="YES">
+        <attribute name="leagueId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="selectedHamsterId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="ProfessionCoreData" representedClassName=".ProfessionCoreData" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="profit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalProfit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="SavedDateCoreData" representedClassName=".SavedDateCoreData" syncable="YES">
+        <attribute name="savedDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TapValueCoreData" representedClassName=".TapValueCoreData" syncable="YES">
+        <attribute name="tapValue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tapValueLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
 </model>

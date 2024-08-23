@@ -40,6 +40,84 @@ final class LocalStorage {
         coreDataStack.saveContext()
     }
     
+    func saveParameters(leagueId: Int, selectedHamsterId: Int) {
+        do {
+            let parametersObjects = try coreDataStack.managedContext.fetch(Parameters.fetchRequest())
+            if parametersObjects.count > 0 {
+                if let first = parametersObjects.first {
+                    first.leagueId = Int32(leagueId)
+                    first.selectedHamsterId = Int32(selectedHamsterId)
+                }
+            } else {
+                let parameters = Parameters(context: coreDataStack.managedContext)
+                parameters.leagueId = Int32(leagueId)
+                parameters.selectedHamsterId = Int32(selectedHamsterId)
+            }
+            
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func fetchParameters() throws -> Parameters? {
+        let parameters = try coreDataStack.managedContext.fetch(Parameters.fetchRequest()).first
+        guard let parameters = parameters else { return nil }
+        return parameters
+    }
+    
+    func fetchTapValue() throws -> TapValueCoreData? {
+        let tapValue = try coreDataStack.managedContext.fetch(TapValueCoreData.fetchRequest()).first
+        guard let tapValue = tapValue else { return nil }
+        return tapValue
+    }
+    
+    func editTapValue(_ tapValue: Int, tapValueLevel: Int) {
+        do {
+            let tapValueCoreDataObjects = try coreDataStack.managedContext.fetch(TapValueCoreData.fetchRequest())
+            if tapValueCoreDataObjects.count > 0 {
+                if let first = tapValueCoreDataObjects.first {
+                    first.tapValue = Int32(tapValue)
+                    first.tapValueLevel = Int32(tapValueLevel)
+                }
+            } else {
+                let tapValueCoreData = TapValueCoreData(context: coreDataStack.managedContext)
+                tapValueCoreData.tapValue = Int32(tapValue)
+                tapValueCoreData.tapValueLevel = Int32(tapValueLevel)
+            }
+            
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func editEnergyLevel(_ maxEnergy: Int, energyLevel: Int) {
+        do {
+            let energyLevelObjects = try coreDataStack.managedContext.fetch(EnergyLevel.fetchRequest())
+            if energyLevelObjects.count > 0 {
+                if let first = energyLevelObjects.first {
+                    first.maxEnergy = Int32(maxEnergy)
+                    first.maxEnergyLevel = Int32(energyLevel)
+                }
+            } else {
+                let energyLevelCoreData = EnergyLevel(context: coreDataStack.managedContext)
+                energyLevelCoreData.maxEnergy = Int32(maxEnergy)
+                energyLevelCoreData.maxEnergyLevel = Int32(energyLevel)
+            }
+            
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func fetchEnergyLevel() throws -> EnergyLevel? {
+        let energyLevel = try coreDataStack.managedContext.fetch(EnergyLevel.fetchRequest()).first
+        guard let energyLevel = energyLevel else { return nil }
+        return energyLevel
+    }
+    
     func saveEnergy(_ energy: Int) {
         do {
             let energyObjects = try coreDataStack.managedContext.fetch(EnergyCoreData.fetchRequest())
@@ -77,6 +155,41 @@ final class LocalStorage {
         coreDataStack.saveContext()
     }
     
+    func save(combo: Array<(Int,Bool)>) {
+        do {
+            let comboObjects = try coreDataStack.managedContext.fetch(Combo.fetchRequest())
+            if comboObjects.count > 0 {
+                if let first =  comboObjects.first {
+                    first.first = Int32(combo[0].0)
+                    first.second = Int32(combo[1].0)
+                    first.third = Int32(combo[2].0)
+                    first.firstGot = combo[0].1
+                    first.secondGot = combo[1].1
+                    first.thirdGot = combo[2].1
+                }
+            } else {
+                let comboCoreData = Combo(context: coreDataStack.managedContext)
+                comboCoreData.first = Int32(combo[0].0)
+                comboCoreData.second = Int32(combo[1].0)
+                comboCoreData.third = Int32(combo[2].0)
+                comboCoreData.firstGot = combo[0].1
+                comboCoreData.secondGot = combo[1].1
+                comboCoreData.thirdGot = combo[2].1
+            }
+            
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        coreDataStack.saveContext()
+    }
+    
+    func fetchCombo() throws -> Array<(Int,Bool)>? {
+        let combo = try coreDataStack.managedContext.fetch(Combo.fetchRequest()).first
+        guard let combo = combo else { return nil }
+        let array: Array<(Int,Bool)> = [(Int(combo.first),combo.firstGot), (Int(combo.second),combo.secondGot), (Int(combo.third),combo.thirdGot)]
+        return array
+    }
+    
     func saveMiniGameTimer(_ timerValue: Int) {
         do {
             let miniGameTimerObjects = try coreDataStack.managedContext.fetch(MiniGameTimerCoreData.fetchRequest())
@@ -96,22 +209,76 @@ final class LocalStorage {
         coreDataStack.saveContext()
     }
     
+    func saveDayIndex(_ dayIndex: Int) {
+        do {
+            let dayIndexObjects = try coreDataStack.managedContext.fetch(DayIndex.fetchRequest())
+            if dayIndexObjects.count > 0 {
+                if let first =  dayIndexObjects.first {
+                    first.dayIndex = Int32(dayIndex)
+                }
+            } else {
+                let dayIndexCoreData = DayIndex(context: coreDataStack.managedContext)
+                dayIndexCoreData.dayIndex = Int32(dayIndex)
+            }
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        
+        coreDataStack.saveContext()
+    }
+    
+    func fetchDayIndex() throws -> Int? {
+        let dayIndex = try coreDataStack.managedContext.fetch(DayIndex.fetchRequest()).first
+        guard let dayIndex = dayIndex else { return nil }
+        return Int(dayIndex.dayIndex)
+    }
+    
+    func saveSavedDate(_ savedDate: String) {
+        do {
+            let savedDateObjects = try coreDataStack.managedContext.fetch(SavedDateCoreData.fetchRequest())
+            if savedDateObjects.count > 0 {
+                if let first =  savedDateObjects.first {
+                    first.savedDate = savedDate
+                }
+            } else {
+                let savedDateCoreData = SavedDateCoreData(context: coreDataStack.managedContext)
+                savedDateCoreData.savedDate = savedDate
+            }
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        
+        coreDataStack.saveContext()
+    }
+    
+    func fetchSavedDate() throws -> String? {
+        let savedDate = try coreDataStack.managedContext.fetch(SavedDateCoreData.fetchRequest()).first
+        guard let savedDate = savedDate else { return nil }
+        return savedDate.savedDate
+    }
+    
     func fetchBalance() throws -> Int? {
         let balanceCoreData = try coreDataStack.managedContext.fetch(Balance.fetchRequest()).first
         guard let balanceCoreData = balanceCoreData else { return nil }
         return Int(balanceCoreData.balance)
     }
     
-    func fetchMiniGameTimer() throws -> Int {
-        Int(try coreDataStack.managedContext.fetch(MiniGameTimerCoreData.fetchRequest()).first?.miniGameTimer ?? 0)
+    func fetchMiniGameTimer() throws -> Int? {
+        let miniGameTimer = try coreDataStack.managedContext.fetch(MiniGameTimerCoreData.fetchRequest()).first
+        guard let miniGameTimer = miniGameTimer else { return nil }
+        return Int(miniGameTimer.miniGameTimer)
     }
     
-    func fetchEnergy() throws -> Int {
-        Int(try coreDataStack.managedContext.fetch(EnergyCoreData.fetchRequest()).first?.energy ?? 0)
+    func fetchEnergy() throws -> Int? {
+        let energy = try coreDataStack.managedContext.fetch(EnergyCoreData.fetchRequest()).first
+        guard let energy = energy else { return nil }
+        return Int(energy.energy)
     }
     
-    func fetchEnergyFillRestoreTimer() throws -> Int {
-        Int(try coreDataStack.managedContext.fetch(EnergyFillRestoreTimerCoreData.fetchRequest()).first?.energyFillRestoreTimer ?? 0)
+    func fetchEnergyFillRestoreTimer() throws -> Int? {
+        let energyFillRestoreTimer = try coreDataStack.managedContext.fetch(EnergyFillRestoreTimerCoreData.fetchRequest()).first
+        guard let energyFillRestoreTimer = energyFillRestoreTimer else { return nil }
+        return Int(energyFillRestoreTimer.energyFillRestoreTimer)
     }
     
     func editHamster(_ hamster: Hamster) {

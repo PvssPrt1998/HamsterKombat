@@ -5,10 +5,7 @@ final class LeagueViewModel: ObservableObject {
     
     @Published var dataManager: DataManager
     
-    var leagueId: Int {
-        dataManager.leagueId
-    }
-    
+    @Published var leagueId: Int
     var leagueTitle: String {
         switch dataManager.leagueId {
         case 0: return "Bronze"
@@ -30,8 +27,9 @@ final class LeagueViewModel: ObservableObject {
     
     init(dataManager: DataManager) {
         self.dataManager = dataManager
-        leagueIdCancellable = dataManager.$leagueId.sink { [weak self] _ in
-            self?.objectWillChange.send()
+        leagueId = dataManager.leagueId
+        leagueIdCancellable = dataManager.$leagueId.sink { [weak self] value in
+            self?.leagueId = value
         }
     }
 }

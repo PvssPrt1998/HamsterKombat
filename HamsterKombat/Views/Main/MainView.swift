@@ -154,6 +154,7 @@ struct MainView: View {
             viewModel.addEveryHourReward(input)
             viewModel.miniGameTimer()
             viewModel.energyReloadTimer()
+            viewModel.toNextDayTimer()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification), perform: { _ in
             viewModel.saveData()

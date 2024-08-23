@@ -15,13 +15,13 @@ final class BurseViewModel: ObservableObject {
         dataManager.tapValue
     }
     
-    var timerValue: Int
+    @Published var timerValue: Int
     
     private var balanceCancellable: AnyCancellable?
     private var energyCancellable: AnyCancellable?
     
     var miniGameAvailable: Bool {
-        dataManager.miniGameReloadTimer <= 0
+        return dataManager.miniGameReloadTimer <= 0
     }
 
     @Published var tapIndex = 0
@@ -54,7 +54,6 @@ final class BurseViewModel: ObservableObject {
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         timerValue = dataManager.miniGameReloadTimer
-        
         maxEnergy = dataManager.maxEnergy
         balanceCancellable = dataManager.$balance.sink { [weak self] _ in
             self?.objectWillChange.send()
@@ -87,7 +86,6 @@ final class BurseViewModel: ObservableObject {
     }
     
     func hiddenReloadStr() -> String {
-        var hiddenStr = ""
         var timeString = reloadTime()
         timeString = timeString.replacingOccurrences(of: "0", with: "9")
         timeString = timeString.replacingOccurrences(of: "1", with: "9")

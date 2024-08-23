@@ -49,6 +49,18 @@
 		99228BB02C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA82C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift */; };
 		99228BB32C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */; };
 		99228BB42C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */; };
+		99228BB72C789570009A3C2F /* SavedDateCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB52C789570009A3C2F /* SavedDateCoreData+CoreDataClass.swift */; };
+		99228BB82C789570009A3C2F /* SavedDateCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB62C789570009A3C2F /* SavedDateCoreData+CoreDataProperties.swift */; };
+		99228BBB2C789BDD009A3C2F /* DayIndex+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB92C789BDD009A3C2F /* DayIndex+CoreDataClass.swift */; };
+		99228BBC2C789BDD009A3C2F /* DayIndex+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BBA2C789BDD009A3C2F /* DayIndex+CoreDataProperties.swift */; };
+		99228BBF2C789EB6009A3C2F /* EnergyLevel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BBD2C789EB6009A3C2F /* EnergyLevel+CoreDataClass.swift */; };
+		99228BC02C789EB6009A3C2F /* EnergyLevel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BBE2C789EB6009A3C2F /* EnergyLevel+CoreDataProperties.swift */; };
+		99228BC92C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BC52C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift */; };
+		99228BCA2C78A360009A3C2F /* TapValueCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BC62C78A360009A3C2F /* TapValueCoreData+CoreDataProperties.swift */; };
+		99228BCB2C78A360009A3C2F /* Parameters+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BC72C78A360009A3C2F /* Parameters+CoreDataClass.swift */; };
+		99228BCC2C78A360009A3C2F /* Parameters+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BC82C78A360009A3C2F /* Parameters+CoreDataProperties.swift */; };
+		99228BD32C78B6E7009A3C2F /* Combo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */; };
+		99228BD42C78B6E7009A3C2F /* Combo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */; };
 		9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */; };
 		9999E9712C628CFF002C0819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9702C628CFF002C0819 /* ContentView.swift */; };
 		9999E9732C628D02002C0819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9722C628D02002C0819 /* Assets.xcassets */; };
@@ -134,6 +146,18 @@
 		99228BA82C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniGameTimerCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyFillRestoreTimerCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyFillRestoreTimerCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BB52C789570009A3C2F /* SavedDateCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDateCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BB62C789570009A3C2F /* SavedDateCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDateCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BB92C789BDD009A3C2F /* DayIndex+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayIndex+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BBA2C789BDD009A3C2F /* DayIndex+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayIndex+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BBD2C789EB6009A3C2F /* EnergyLevel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyLevel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BBE2C789EB6009A3C2F /* EnergyLevel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyLevel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BC52C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TapValueCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BC62C78A360009A3C2F /* TapValueCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TapValueCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BC72C78A360009A3C2F /* Parameters+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BC82C78A360009A3C2F /* Parameters+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9999E96B2C628CFF002C0819 /* HamsterKombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamsterKombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterKombatApp.swift; sourceTree = "<group>"; };
 		9999E9702C628CFF002C0819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -285,6 +309,18 @@
 		99228B9E2C77759E009A3C2F /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */,
+				99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */,
+				99228BC52C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift */,
+				99228BC62C78A360009A3C2F /* TapValueCoreData+CoreDataProperties.swift */,
+				99228BC72C78A360009A3C2F /* Parameters+CoreDataClass.swift */,
+				99228BC82C78A360009A3C2F /* Parameters+CoreDataProperties.swift */,
+				99228BBD2C789EB6009A3C2F /* EnergyLevel+CoreDataClass.swift */,
+				99228BBE2C789EB6009A3C2F /* EnergyLevel+CoreDataProperties.swift */,
+				99228BB92C789BDD009A3C2F /* DayIndex+CoreDataClass.swift */,
+				99228BBA2C789BDD009A3C2F /* DayIndex+CoreDataProperties.swift */,
+				99228BB52C789570009A3C2F /* SavedDateCoreData+CoreDataClass.swift */,
+				99228BB62C789570009A3C2F /* SavedDateCoreData+CoreDataProperties.swift */,
 				99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */,
 				99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */,
 				99228BA12C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift */,
@@ -580,6 +616,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99228B7C2C751728009A3C2F /* FloatingPointExtension.swift in Sources */,
+				99228BB72C789570009A3C2F /* SavedDateCoreData+CoreDataClass.swift in Sources */,
+				99228BB82C789570009A3C2F /* SavedDateCoreData+CoreDataProperties.swift in Sources */,
 				99228BB32C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift in Sources */,
 				99228BB42C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift in Sources */,
 				9999E9852C62902F002C0819 /* TextCustom.swift in Sources */,
@@ -601,6 +639,8 @@
 				99228B9D2C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift in Sources */,
 				99228B8A2C773338009A3C2F /* TimesUpView.swift in Sources */,
 				99228B912C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld in Sources */,
+				99228BBF2C789EB6009A3C2F /* EnergyLevel+CoreDataClass.swift in Sources */,
+				99228BC02C789EB6009A3C2F /* EnergyLevel+CoreDataProperties.swift in Sources */,
 				99228B882C762912009A3C2F /* Day.swift in Sources */,
 				9999EA032C6A0929002C0819 /* MiniGameView.swift in Sources */,
 				9999E9992C63649C002C0819 /* LeagueView.swift in Sources */,
@@ -614,9 +654,13 @@
 				9999E9972C6360C9002C0819 /* BuyASkinButton.swift in Sources */,
 				9999E9FC2C6925C7002C0819 /* SkinsListView.swift in Sources */,
 				99228B5D2C6F6E55009A3C2F /* Profession.swift in Sources */,
+				99228BD32C78B6E7009A3C2F /* Combo+CoreDataClass.swift in Sources */,
+				99228BD42C78B6E7009A3C2F /* Combo+CoreDataProperties.swift in Sources */,
 				9999E9952C62C64C002C0819 /* TimerView.swift in Sources */,
 				99228B952C7774A0009A3C2F /* LocalStorage.swift in Sources */,
 				9999E9F42C691453002C0819 /* SelectedSkinView.swift in Sources */,
+				99228BBB2C789BDD009A3C2F /* DayIndex+CoreDataClass.swift in Sources */,
+				99228BBC2C789BDD009A3C2F /* DayIndex+CoreDataProperties.swift in Sources */,
 				9999E9A42C63FD26002C0819 /* ProfessionView.swift in Sources */,
 				99228B672C73485A009A3C2F /* DailyReward.swift in Sources */,
 				99228B692C734C85009A3C2F /* DailyRewardDayView.swift in Sources */,
@@ -648,6 +692,10 @@
 				99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */,
 				99228B5B2C6F6C7A009A3C2F /* MiningViewModel.swift in Sources */,
 				9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */,
+				99228BC92C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift in Sources */,
+				99228BCA2C78A360009A3C2F /* TapValueCoreData+CoreDataProperties.swift in Sources */,
+				99228BCB2C78A360009A3C2F /* Parameters+CoreDataClass.swift in Sources */,
+				99228BCC2C78A360009A3C2F /* Parameters+CoreDataProperties.swift in Sources */,
 				99228B6D2C735FA5009A3C2F /* HamsterButton.swift in Sources */,
 				99228BA92C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift in Sources */,
 				99228BAA2C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift in Sources */,

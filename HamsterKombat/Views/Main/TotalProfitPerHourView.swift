@@ -6,10 +6,11 @@ struct TotalProfitPerHourView: View {
     @ObservedObject var viewModel: TotalProfitPerHourViewModel
     
     var body: some View {
-        HStack(spacing: 7) {
-            TextCustom(text: "Profit per hour", size: 12, weight: .semibold, color: .white)
-            TextCustom(text: "\(viewModel.totalProfit)", size: 12, weight: .medium, color: .white)
+        VStack(spacing: 3) {
+            TextCustom(text: "Profit per hour: ", size: 12, weight: .bold, color: .white)
+            TextCustom(text: "\(viewModel.totalProfit)", size: 12, weight: .bold, color: .white)
         }
+        .padding(.leading, 10)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(LinearGradient(colors: [.orangeTopGradient, .orangeBottomGradient], startPoint: .top, endPoint: .bottom))
         .clipShape(.rect(cornerRadius: 6))
