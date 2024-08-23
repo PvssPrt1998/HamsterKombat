@@ -61,6 +61,8 @@
 		99228BCC2C78A360009A3C2F /* Parameters+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BC82C78A360009A3C2F /* Parameters+CoreDataProperties.swift */; };
 		99228BD32C78B6E7009A3C2F /* Combo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */; };
 		99228BD42C78B6E7009A3C2F /* Combo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */; };
+		99228BDB2C78D133009A3C2F /* DailyRewardCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BD92C78D133009A3C2F /* DailyRewardCoreData+CoreDataClass.swift */; };
+		99228BDC2C78D133009A3C2F /* DailyRewardCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BDA2C78D133009A3C2F /* DailyRewardCoreData+CoreDataProperties.swift */; };
 		9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */; };
 		9999E9712C628CFF002C0819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9702C628CFF002C0819 /* ContentView.swift */; };
 		9999E9732C628D02002C0819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9722C628D02002C0819 /* Assets.xcassets */; };
@@ -158,6 +160,8 @@
 		99228BC82C78A360009A3C2F /* Parameters+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BD92C78D133009A3C2F /* DailyRewardCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyRewardCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BDA2C78D133009A3C2F /* DailyRewardCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyRewardCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9999E96B2C628CFF002C0819 /* HamsterKombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamsterKombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterKombatApp.swift; sourceTree = "<group>"; };
 		9999E9702C628CFF002C0819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 		99228B9E2C77759E009A3C2F /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				99228BD92C78D133009A3C2F /* DailyRewardCoreData+CoreDataClass.swift */,
+				99228BDA2C78D133009A3C2F /* DailyRewardCoreData+CoreDataProperties.swift */,
 				99228BD12C78B6E7009A3C2F /* Combo+CoreDataClass.swift */,
 				99228BD22C78B6E7009A3C2F /* Combo+CoreDataProperties.swift */,
 				99228BC52C78A360009A3C2F /* TapValueCoreData+CoreDataClass.swift */,
@@ -627,6 +633,8 @@
 				99228B602C723B71009A3C2F /* ComboHintView.swift in Sources */,
 				9999E9EB2C690706002C0819 /* ViewModelFactory.swift in Sources */,
 				99228B822C75E150009A3C2F /* ProfessionViewModel.swift in Sources */,
+				99228BDB2C78D133009A3C2F /* DailyRewardCoreData+CoreDataClass.swift in Sources */,
+				99228BDC2C78D133009A3C2F /* DailyRewardCoreData+CoreDataProperties.swift in Sources */,
 				9999E9A82C64BF2D002C0819 /* ProfessionDetailsView.swift in Sources */,
 				99EB82622C6A26DB00147F23 /* SpaceController.swift in Sources */,
 				9999E98B2C6290D2002C0819 /* ForegroundColorCustomModifier.swift in Sources */,

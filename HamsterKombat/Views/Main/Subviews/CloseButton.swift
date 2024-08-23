@@ -1,9 +1,4 @@
-//
-//  CloseButton.swift
-//  HamsterKombat
-//
-//  Created by Николай Щербаков on 11.08.2024.
-//
+
 
 import SwiftUI
 

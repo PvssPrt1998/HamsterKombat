@@ -21,6 +21,37 @@ final class LocalStorage {
         coreDataStack.saveContext()
     }
     
+    func saveReward(id: Int, got: Bool) {
+        do {
+            let rewardObjects = try coreDataStack.managedContext.fetch(DailyRewardCoreData.fetchRequest())
+            var founded = false
+            rewardObjects.forEach { reward in
+                if reward.id == Int32(id) {
+                    reward.got = got
+                    founded = true
+                }
+            }
+            if !founded {
+                let reward = DailyRewardCoreData(context: coreDataStack.managedContext)
+                reward.id = Int32(id)
+                reward.got = got
+            }
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
+        
+        coreDataStack.saveContext()
+    }
+    
+    func fetchRewards() throws -> Array<(Int,Bool)> {
+        var rewards: Array<(Int,Bool)> = []
+        let rewardObjects = try coreDataStack.managedContext.fetch(DailyRewardCoreData.fetchRequest())
+        rewardObjects.forEach { reward in
+            rewards.append((Int(reward.id), reward.got))
+        }
+        return rewards
+    }
+    
     func saveEnergyFillRestoreTimer(_ timerValue: Int) {
         do {
             let energyFillRestoreTimerCoreDataObjects = try coreDataStack.managedContext.fetch(EnergyFillRestoreTimerCoreData.fetchRequest())

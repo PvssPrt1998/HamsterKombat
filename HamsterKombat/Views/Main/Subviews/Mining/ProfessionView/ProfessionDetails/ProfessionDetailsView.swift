@@ -62,6 +62,7 @@ struct ProfessionDetailsView: View {
                 
                 
                 Button {
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     viewModel.buttonPressed(id: professionId)
                 } label: {
                     HStack(spacing: 3) {

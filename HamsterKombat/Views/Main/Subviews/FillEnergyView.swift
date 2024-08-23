@@ -43,6 +43,7 @@ struct FillEnergyView: View {
                     .padding(.top, 20)
                     
                     Button {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         viewModel.restoreEnergy()
                     } label: {
                         if viewModel.timerValue <= 0 {
@@ -78,6 +79,7 @@ struct FillEnergyView: View {
                     .padding(.top, 39)
                     
                     Button {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         viewModel.tapValueLevelUp()
                     } label: {
                         HStack(spacing: 8) {
@@ -97,6 +99,7 @@ struct FillEnergyView: View {
                     .padding(.top, 12)
                     
                     Button {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         viewModel.maxEnergyLevelUp()
                     } label: {
                         HStack(spacing: 8) {

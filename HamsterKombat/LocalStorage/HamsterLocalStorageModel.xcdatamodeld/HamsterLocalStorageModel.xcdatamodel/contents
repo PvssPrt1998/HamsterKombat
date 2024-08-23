@@ -11,6 +11,10 @@
         <attribute name="third" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="thirdGot" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
+    <entity name="DailyRewardCoreData" representedClassName=".DailyRewardCoreData" syncable="YES">
+        <attribute name="got" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="DayIndex" representedClassName=".DayIndex" syncable="YES">
         <attribute name="dayIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>

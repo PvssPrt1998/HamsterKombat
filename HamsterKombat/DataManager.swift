@@ -97,6 +97,10 @@ final class DataManager: ObservableObject {
     
     func firstLaunchPrepares() {
         if firstLaunch {
+            for index in 0..<rewards.count {
+                localStorage.saveReward(id: index, got: false)
+            }
+            
             self.hamsters.forEach { hamster in
                 localStorage.saveHamster(hamster)
             }
@@ -191,7 +195,11 @@ final class DataManager: ObservableObject {
             }
             if let dayIndex = try? localStorage.fetchDayIndex() {
                 self.dayIndex = dayIndex
-                print(dayIndex)
+            }
+            if let rewardsCoreData = try? localStorage.fetchRewards() {
+                rewardsCoreData.forEach { (index, got) in
+                    self.rewards[index].got = got
+                }
             }
             if let energyLevel = try? localStorage.fetchEnergyLevel() {
                 self.maxEnergyLevel = Int(energyLevel.maxEnergyLevel)
@@ -451,6 +459,7 @@ final class DataManager: ObservableObject {
     func getReward() {
         rewards[dayIndex].got = true
         balance += rewards[dayIndex].reward
+        localStorage.saveReward(id: dayIndex, got: true)
     }
     
     func increaseOrDropDayIndex(_ day: String) {
@@ -466,6 +475,7 @@ final class DataManager: ObservableObject {
     func resetDailyRewards() {
         for index in 0..<rewards.count {
             rewards[index].got = false
+            localStorage.saveReward(id: index, got: false)
         }
     }
 }

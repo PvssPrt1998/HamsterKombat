@@ -36,6 +36,7 @@ struct SkinsView: View {
                     .frame(height: 44)
                 }
                 Button {
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     viewModel.buttonPressed()
                 } label: {
                     TextCustom(text: viewModel.buttonTitle(), size: 16, weight: .semibold, color: .white)
