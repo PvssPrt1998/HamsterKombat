@@ -22,7 +22,9 @@ final class DataManager: ObservableObject {
     
     var maxEnergyLevel = 1
     var maxEnergy = 1500
-    @Published var maxEnergyLevelPrice = 2000
+    @Published var maxEnergyLevelPrice = 1000
+    
+    var initialLevelPrice = 2000
     
     @Published var miniGameTimer: Int = 60
     @Published var miniGameReloadTimer: Int = 0
@@ -305,7 +307,7 @@ final class DataManager: ObservableObject {
     func setTapValueLevelPrice() {
         tapValueLevelPrice = 1000
         for index in 1...tapValueLevel {
-            tapValueLevelPrice *= index
+            tapValueLevelPrice = index
         }
     }
     func setEnergyLevelPrice() {
@@ -349,7 +351,7 @@ final class DataManager: ObservableObject {
         balance -= tapValueLevelPrice
         tapValue += 1
         tapValueLevel += 1
-        tapValueLevelPrice *= 2
+        setTapValueLevelPrice()
         localStorage.editTapValue(tapValue, tapValueLevel: tapValueLevel)
     }
     
@@ -357,7 +359,7 @@ final class DataManager: ObservableObject {
         balance -= maxEnergyLevelPrice
         maxEnergy += 500
         maxEnergyLevel += 1
-        maxEnergyLevelPrice *= 2
+        setEnergyLevelPrice()
         localStorage.editEnergyLevel(maxEnergy, energyLevel: maxEnergyLevel)
     }
     
