@@ -25,6 +25,9 @@ struct BurseView: View {
                             .overlay(
                                 VStack {
                                     Image(ImageTitles.Calendar.rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 40)
                                     TextCustom(text: "Daily Reward", size: 10, weight: .bold, color: .white)
                                 }
                             )
@@ -40,6 +43,9 @@ struct BurseView: View {
                             .overlay(
                                 VStack {
                                     Image(ImageTitles.MagnifyingGlass.rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 40)
                                     TextCustom(text: "Combo", size: 10, weight: .bold, color: .white)
                                 }
                             )
@@ -58,6 +64,9 @@ struct BurseView: View {
                                 VStack {
                                     if viewModel.miniGameAvailable {
                                         Image(ImageTitles.Gamepad.rawValue)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 40)
                                     } else {
                                         TextCustom(text: viewModel.hiddenReloadStr(), size: 16, weight: .medium, color: .white)
                                             .hidden()
@@ -65,6 +74,7 @@ struct BurseView: View {
                                                 TextCustom(text: viewModel.reloadTime(), size: 16, weight: .medium, color: .white)
                                                 , alignment: .leading
                                             )
+                                            .frame(height: 40)
                                     }
                                     TextCustom(text: "Mini-game", size: 10, weight: .bold, color: .white)
                                 }
