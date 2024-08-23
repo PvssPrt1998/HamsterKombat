@@ -46,8 +46,8 @@ final class DataManager: ObservableObject {
     var selectedHamsterId: Int = 0
     
     @Published var rewards: Array<Day> = [
-        Day(reward: 500, got: true),
-        Day(reward: 1000, got: true),
+        Day(reward: 500, got: false),
+        Day(reward: 1000, got: false),
         Day(reward: 2500, got: false),
         Day(reward: 5000, got: false),
         Day(reward: 15000, got: false),
@@ -103,6 +103,7 @@ final class DataManager: ObservableObject {
             self.professions.forEach { profession in
                 localStorage.saveProfession(profession)
             }
+            dayIndex = 0
             localStorage.editEnergyLevel(maxEnergy, energyLevel: maxEnergyLevel)
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -190,6 +191,7 @@ final class DataManager: ObservableObject {
             }
             if let dayIndex = try? localStorage.fetchDayIndex() {
                 self.dayIndex = dayIndex
+                print(dayIndex)
             }
             if let energyLevel = try? localStorage.fetchEnergyLevel() {
                 self.maxEnergyLevel = Int(energyLevel.maxEnergyLevel)
