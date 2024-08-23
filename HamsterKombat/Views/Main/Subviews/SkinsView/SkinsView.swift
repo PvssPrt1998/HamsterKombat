@@ -5,6 +5,10 @@ struct SkinsView: View {
     @ObservedObject var viewModel: SkinsViewModel
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     
+    @Binding var showSkinsView: Bool
+    
+    @StateObject var sheetSizeManager: SheetSizeManager
+    
     @EnvironmentObject var viewModelFactory: ViewModelFactory
     
     var body: some View {
@@ -24,30 +28,36 @@ struct SkinsView: View {
                         .frame(height: 44)
                 } else {
                     HStack {
-                        Image(ImageTitles.SilverCoin.rawValue)
+                        Image(viewModel.isMoneyEnough ? ImageTitles.CoinDollarIcon.rawValue : ImageTitles.SilverCoin.rawValue)
                             .resizable()
                             .scaledToFit()
-                        TextCustom(text: viewModel.price, size: 20, weight: .bold, color: .white.opacity(0.4))
+                        TextCustom(text: viewModel.price, size: 20, weight: .bold, color: .white.opacity(viewModel.isMoneyEnough ? 1 : 0.4))
                     }
                     .frame(height: 44)
                 }
                 Button {
-                    
+                    viewModel.buttonPressed()
                 } label: {
-                    TextCustom(text: "Choose", size: 16, weight: .semibold, color: .white)
+                    TextCustom(text: viewModel.buttonTitle(), size: 16, weight: .semibold, color: .white)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.buySkinButton)
+                        .background(viewModel.buttonDisabled() ? Color.buySkinButton : Color.blueButton)
                         .frame(height: 54)
                         .clipShape(.rect(cornerRadius: 12))
                         .padding(.horizontal, 14)
                 }
+                .disabled(viewModel.buttonDisabled())
                 .padding(.top, 8)
                 
                 SkinsListView(selection: $viewModel.selection, viewModel: viewModelFactory.makeSkinsListViewModel())
                     .padding(EdgeInsets(top: 24, leading: 14, bottom: safeAreaInsets.bottom + 8, trailing: 14))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            CloseButton(action: {})
+            CloseButton(action: {
+                sheetSizeManager.dismissSheet()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    showSkinsView = false
+                }
+            })
                 .padding(24)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         }
@@ -57,10 +67,20 @@ struct SkinsView: View {
                 .resizable()
         )
         .ignoresSafeArea(.container, edges: .bottom)
+        .offset(x: 0, y: sheetSizeManager.topPadding)
+        .onAppear {
+            sheetSizeManager.appearance()
+        }
     }
 }
 
-#Preview {
-    SkinsView(viewModel: ViewModelFactory().makeSkinsViewModel())
-        .environmentObject(ViewModelFactory())
+struct SkinsView_Preview: PreviewProvider {
+    
+    @State static var showSkinsView = false
+    
+    static var previews: some View {
+        SkinsView(viewModel: ViewModelFactory().makeSkinsViewModel(), showSkinsView: $showSkinsView, sheetSizeManager: SheetSizeManager(screenHeight: UIScreen.screenHeight))
+            .environmentObject(ViewModelFactory())
+    }
+    
 }

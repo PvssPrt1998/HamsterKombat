@@ -3,11 +3,17 @@ import SwiftUI
 @main
 struct HamsterKombatApp: App {
     
-    let viewModelFactory = ViewModelFactory()
+    let viewModelFactory: ViewModelFactory
+    @ObservedObject var coordinator: Coordinator
+    
+    init() {
+        viewModelFactory = ViewModelFactory()
+        coordinator = Coordinator(viewModelFactory: viewModelFactory)
+    }
     
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: viewModelFactory.makeMainViewModel())
+            coordinator.build()
                 .environmentObject(viewModelFactory)
         }
     }

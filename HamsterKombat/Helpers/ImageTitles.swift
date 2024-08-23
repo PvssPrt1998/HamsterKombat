@@ -2,6 +2,8 @@ import Foundation
 
 enum ImageTitles: String {
     case LoadingBackground
+    case LoadingBackground1
+    case LoadingBackground2
     case LoadingIndicator
     case CoinDollarIcon
     case VideoIcon
@@ -56,6 +58,8 @@ enum ImageTitles: String {
     case CoinsIcon
     case HamsterWithCar
     case SilverCoin
+    
+    //Professions
     case HamsterWithLoudspeaker
     case ITHamster
     case HamsterBook
@@ -71,4 +75,15 @@ enum ImageTitles: String {
     case ITHamsterLarge
     case SupportHamsterLarge
     case xHamsterLarge
+    
+    case WizardHamster
+    
+    case EnergyLightning
+    case EnergyEllipse
+    case rocket
+    case CalendarLarge
+    case HamsterTubeUnlocked
+    
+    case Alarm
+    case AlarmIcon
 }

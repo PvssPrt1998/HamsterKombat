@@ -1,16 +1,20 @@
 import SwiftUI
+import Combine
 
 struct LoadingView: View {
     
     @State var rotationValue: Double = 45
     
+    @ObservedObject var viewModel: LoadingViewModel
+   
+    let random = Int.random(in: 1...3)
+    
     var body: some View {
         ZStack {
-            Image(ImageTitles.LoadingBackground.rawValue)
+            Image(randomBackground())
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                
                 VStack(spacing: 24) {
                     CircularProgressBarProgressView()
                         .rotationEffect(.degrees(rotationValue))
@@ -25,15 +29,28 @@ struct LoadingView: View {
                 }
         }
         .onAppear {
-            withAnimation(.linear(duration: 2)) {
-                rotationValue = 1440
+            withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: false)) {
+                rotationValue = 405
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                viewModel.load()
+            }
+        }
+    }
+    
+    func randomBackground() -> String {
+        switch random {
+        case 1: return ImageTitles.LoadingBackground.rawValue
+        case 2: return ImageTitles.LoadingBackground1.rawValue
+        case 3: return ImageTitles.LoadingBackground2.rawValue
+        default:
+            return ImageTitles.LoadingBackground.rawValue
         }
     }
 }
 
 #Preview {
-    LoadingView()
+    LoadingView(viewModel: LoadingViewModel(dataManager: DataManager()))
 }
 
 struct CircularProgressBarProgressView: View {
@@ -49,5 +66,35 @@ struct CircularProgressBarProgressView: View {
                     ))
             .rotationEffect(.degrees(-90))
             .padding(lineWidth/2)
+    }
+}
+
+final class LoadingViewModel: ObservableObject {
+    @Published var dataManager: DataManager
+    
+    let loadedForCoordinator = PassthroughSubject<Bool, Never>()
+    
+    @Published var localLoaded = false {
+        didSet {
+            if localLoaded {
+                loadedForCoordinator.send(true)
+            }
+        }
+    }
+    
+    var loadedCancellable: AnyCancellable?
+    
+    init(dataManager: DataManager) {
+        self.dataManager = dataManager
+        
+        loadedCancellable = dataManager.$localDataLoaded.sink { [weak self] value in
+            if value {
+                self?.localLoaded = value
+            }
+        }
+    }
+    
+    func load() {
+        dataManager.loadLocalData()
     }
 }

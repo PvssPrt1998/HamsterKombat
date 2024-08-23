@@ -1,10 +1,3 @@
-//
-//  ProfessionViewDescription.swift
-//  HamsterKombat
-//
-//  Created by Николай Щербаков on 11.08.2024.
-//
-
 import SwiftUI
 
 struct ProfessionViewDescription: View {
@@ -18,6 +11,9 @@ struct ProfessionViewDescription: View {
             TextCustom(text: "Profit per hour", size: 10, weight: .medium, color: .white.opacity(0.4))
             HStack(spacing: 1) {
                 Image(ImageTitles.SilverCoin.rawValue)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
                 TextCustom(text: "+\(profit)", size: 12, weight: .bold, color: .white.opacity(0.4))
             }
         }

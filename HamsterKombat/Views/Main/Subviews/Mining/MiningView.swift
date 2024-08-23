@@ -1,114 +1,140 @@
 import SwiftUI
 
 struct MiningView: View {
+    
+    @EnvironmentObject var viewModelFactory: ViewModelFactory
+    
+    @ObservedObject var viewModel: MiningViewModel
+    
+    @Binding var showProfessionDetail: Bool
+    @Binding var professionId: Int
+    @Binding var showComboHintView: Bool
+    
     var body: some View {
-        VStack(spacing: 6) {
-            HStack(spacing: 3) {
-                TextCustom(text: "00:09:59", size: 10, weight: .bold, color: .white.opacity(0.4))
-                Image(ImageTitles.WarningFilledIcon.rawValue)
-                    .resizable()
-                    .frame(width: 16, height: 16)
-            }
-            .padding(.top, 18)
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            
-            HStack {
-                TextCustom(text: "Combo", size: 15, weight: .bold, color: .white)
-                Spacer()
+        ZStack {
+            VStack(spacing: 6) {
+                HStack(spacing: 3) {
+                    TextCustom(text: "00:09:59", size: 10, weight: .bold, color: .white.opacity(0.4))
+                    Image(ImageTitles.WarningFilledIcon.rawValue)
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                }
+                .padding(.top, 18)
+                .onTapGesture {
+                    showComboHintView = true
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                
+                HStack {
+                    TextCustom(text: "Combo", size: 15, weight: .bold, color: .white)
+                    Spacer()
+                    
+                    HStack(spacing: 8) {
+                        Circle()
+                            .fill(Color.comboCircle)
+                            .padding(3)
+                            .background(Circle().fill(Color.comboCircleBorder))
+                        Circle()
+                            .fill(Color.comboCircle)
+                            .padding(3)
+                            .background(Circle().fill(Color.comboCircleBorder))
+                        Circle()
+                            .fill(Color.comboCircle)
+                            .padding(3)
+                            .background(Circle().fill(Color.comboCircleBorder))
+                    }
+                    .frame(height: 16)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 0) {
+                        Image(ImageTitles.CoinDollarIcon.rawValue)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 21, height: 21)
+                        TextCustom(text: "+5 000 000", size: 12, weight: .bold, color: .white)
+                    }
+                    .padding(EdgeInsets(top: 5, leading: 6, bottom: 5, trailing: 6))
+                    .background(
+                        Image(ImageTitles.ComboButtonBackground.rawValue)
+                            .resizable()
+                    )
+                }
+                .padding(EdgeInsets(top: 6, leading: 9, bottom: 6, trailing: 9))
+                .background(Color.comboBackground)
+                .clipShape(.rect(cornerRadius: 6))
                 
                 HStack(spacing: 8) {
-                    Circle()
-                        .fill(Color.comboCircle)
-                        .padding(3)
-                        .background(Circle().fill(Color.comboCircleBorder))
-                    Circle()
-                        .fill(Color.comboCircle)
-                        .padding(3)
-                        .background(Circle().fill(Color.comboCircleBorder))
-                    Circle()
-                        .fill(Color.comboCircle)
-                        .padding(3)
-                        .background(Circle().fill(Color.comboCircleBorder))
+                    hintButton()
+                    hintButton()
+                    hintButton()
                 }
-                .frame(height: 16)
-                
-                Spacer()
-                
-                HStack(spacing: 0) {
+                HStack(spacing: 7) {
                     Image(ImageTitles.CoinDollarIcon.rawValue)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 21, height: 21)
-                    TextCustom(text: "+5 000 000", size: 12, weight: .bold, color: .white)
+                        .frame(height: 44)
+                    TextCustom(text: viewModel.hiddenString(), size: 36, weight: .bold, color: .white)
+                        .hidden()
+                        .overlay(
+                            TextCustom(text: viewModel.balanceString(), size: 36, weight: .bold, color: .white)
+                            ,alignment: .leading
+                        )
                 }
-                .padding(EdgeInsets(top: 5, leading: 6, bottom: 5, trailing: 6))
-                .background(
-                    Image(ImageTitles.ComboButtonBackground.rawValue)
-                        .resizable()
-                )
-            }
-            .padding(EdgeInsets(top: 6, leading: 9, bottom: 6, trailing: 9))
-            .background(Color.comboBackground)
-            .clipShape(.rect(cornerRadius: 6))
-            
-            HStack(spacing: 8) {
-                hintButton()
-                hintButton()
-                hintButton()
-            }
-            HStack(spacing: 7) {
-                Image(ImageTitles.CoinDollarIcon.rawValue)
-                TextCustom(text: "1500", size: 36, weight: .bold, color: .white)
-            }
-            .padding(.top, 17)
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 10) {
-                    HStack(spacing: 10) {
-                        ProfessionView(imageTitle: ImageTitles.HamsterWithCar.rawValue,
-                                       professtionTitle: "SEO", silverCoinValue: 100, level: 0, price: 1000, specialPrice: false) {
-                            
+                .padding(.top, 17)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 10) {
+                        HStack(spacing: 10) {
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 0)) {
+                                professionId = 0
+                                showProfessionDetail = true
+                            }
+                                           
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 1)) {
+                                professionId = 1
+                                showProfessionDetail = true
+                            }
                         }
-                        ProfessionView(imageTitle: ImageTitles.HamsterWithLoudspeaker.rawValue,
-                                       professtionTitle: "Marketing", silverCoinValue: 70, level: 0, price: 1000, specialPrice: false) {
-                            
+                        HStack(spacing: 10) {
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 2)) {
+                                professionId = 2
+                                showProfessionDetail = true
+                            }
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 3)) {
+                                professionId = 3
+                                showProfessionDetail = true
+                            }
                         }
-                    }
-                    HStack(spacing: 10) {
-                        ProfessionView(imageTitle: ImageTitles.ITHamster.rawValue,
-                                       professtionTitle: "IT team", silverCoinValue: 240, level: 0, price: 2000, specialPrice: false) {
-                            
+                        HStack(spacing: 10) {
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 4)) {
+                                professionId = 4
+                                showProfessionDetail = true
+                            }
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 5), lockedText: viewModel.getProfession(by: 4).level >= 5 ? nil : "HamsterBook lvl 5") {
+                                if viewModel.getProfession(by: 4).level >= 5 {
+                                    professionId = 5
+                                    showProfessionDetail = true
+                                }
+                            }
                         }
-                        ProfessionView(imageTitle: ImageTitles.HeadphonesHamster.rawValue,
-                                       professtionTitle: "Support team", silverCoinValue: 70, level: 0, price: 750, specialPrice: false) {
-                            
-                        }
-                    }
-                    HStack(spacing: 10) {
-                        ProfessionView(imageTitle: ImageTitles.HamsterBook.rawValue,
-                                       professtionTitle: "HamsterBook", silverCoinValue: 70, level: 0, price: 500, specialPrice: false) {
-                            
-                        }
-                        ProfessionView(imageTitle: ImageTitles.HamsterTube.rawValue,
-                                       professtionTitle: "HamsterTube", silverCoinValue: 90, level: 0, price: 0, specialPrice: true) {
-                            
+                        HStack(spacing: 10) {
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 6)) {
+                                professionId = 6
+                                showProfessionDetail = true
+                            }
+                            ProfessionView(viewModel: viewModelFactory.makeProfessionViewModel(), profession: viewModel.getProfession(by: 7)) {
+                                professionId = 7
+                                showProfessionDetail = true
+                            }
                         }
                     }
-                    HStack(spacing: 10) {
-                        ProfessionView(imageTitle: ImageTitles.xHamster.rawValue,
-                                       professtionTitle: "X", silverCoinValue: 90, level: 0, price: 550, specialPrice: false) {
-                            
-                        }
-                        ProfessionView(imageTitle: ImageTitles.CryptoHamster.rawValue,
-                                       professtionTitle: "HamsterTube", silverCoinValue: 90, level: 0, price: 350, specialPrice: false) {
-                            
-                        }
-                    }
+                    .padding(.bottom, 59)
                 }
+                .padding(.top, 19)
             }
-            .padding(.top, 19)
+            .padding(.horizontal, 15)
         }
-        .padding(.horizontal, 15)
     }
     
     func hintButton() -> some View {
@@ -132,7 +158,15 @@ struct MiningView: View {
     }
 }
 
-#Preview {
-    MiningView()
-        .background(Color.black)
+struct MiningView_Preview: PreviewProvider {
+    
+    @State static var showProfessionDetail = false
+    @State static var professionId = 0
+    @State static var showComboHintView = false
+    
+    static var previews: some View {
+        MiningView(viewModel: ViewModelFactory().makeMiningViewModel(), showProfessionDetail: $showProfessionDetail, professionId: $professionId, showComboHintView: $showComboHintView)
+            .background(Color.black)
+            .environmentObject(ViewModelFactory())
+    }
 }

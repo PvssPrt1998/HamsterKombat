@@ -192,9 +192,9 @@ class GameScene: SKScene, ObservableObject {
         var sprites = [Hcandle21, Hcandle22, Hcandle23, Hcandle24, Hcandle31, vCandle31, key, vCandle32, vCandle21, vCandle22, vCandle23, vCandle24]
         sprites.removeAll { $0 === sprite }
         
-        let rangeY = SKRange(lowerLimit: sprite.size.height / 2,
-                             upperLimit: size.height - sprite.size.height / 2)
-        let rangeX = SKRange(lowerLimit: sprite.size.width/2, upperLimit: size.width - sprite.size.width/2)
+        let rangeY = SKRange(lowerLimit: sprite.size.height / 2 + 1,
+                             upperLimit: size.height - sprite.size.height / 2 - 1)
+        let rangeX = SKRange(lowerLimit: sprite.size.width/2 + 1, upperLimit: size.width - sprite.size.width/2 - 1)
         
         let left = sprite.position.x - sprite.size.width / 2
         let right = sprite.position.x + sprite.size.width / 2

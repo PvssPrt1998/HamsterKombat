@@ -11,6 +11,9 @@ struct SkinsListView: View {
         LazyVGrid(columns: columns) {
             ForEach(viewModel.hamsters, id: \.self) { hamster in
                 SkinListItemView(hamster: hamster, isSelected: isSelected(id: hamster.id), isDefault: isDefault(id: hamster.id))
+                    .onTapGesture {
+                        selection = hamster.id
+                    }
             }
         }
     }

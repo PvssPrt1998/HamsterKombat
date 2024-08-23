@@ -18,6 +18,22 @@ final class SkinsViewModel: ObservableObject {
         separate(price: dataManager.hamsters[selection].price)
     }
     
+    var isMoneyEnough: Bool {
+        if dataManager.hamsters[selection].price > dataManager.balance {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    var isLeagueEnough: Bool {
+        if dataManager.leagueId >= 6 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         selection = dataManager.selectedHamster.id
@@ -29,6 +45,35 @@ final class SkinsViewModel: ObservableObject {
     
     func isSelectedHamsterPurchased() -> Bool {
         dataManager.hamsters[selection].isAvailable
+    }
+    
+    func buttonTitle() -> String {
+        if dataManager.hamsters[selection].isAvailable {
+            return "Choose"
+        } else if isLeagueEnough {
+            return "Buy"
+        } else {
+            return "Reach the Legendary League to unlock\nthe skin"
+        }
+    }
+    
+    func buttonPressed() {
+        if dataManager.hamsters[selection].isAvailable {
+            dataManager.selectedHamster = dataManager.hamsters[selection]
+        } else {
+            dataManager.hamsters[selection].isAvailable = true
+            dataManager.balance -= dataManager.hamsters[selection].price
+            dataManager.localStorage.editHamster(dataManager.hamsters[selection])
+        }
+        self.objectWillChange.send()
+    }
+    
+    func buttonDisabled() -> Bool {
+        if dataManager.hamsters[selection].isAvailable {
+            return false
+        } else if !isLeagueEnough || !isMoneyEnough {
+            return true
+        } else { return false }
     }
     
     private func separate(price: Int) -> String {

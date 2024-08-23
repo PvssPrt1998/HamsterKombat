@@ -12,6 +12,43 @@
 		99228B532C6F3855009A3C2F /* VerticalCandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B522C6F3855009A3C2F /* VerticalCandle.swift */; };
 		99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B542C6F385F009A3C2F /* HorizontalCandle.swift */; };
 		99228B572C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B562C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift */; };
+		99228B592C6F6A2A009A3C2F /* SheetSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B582C6F6A2A009A3C2F /* SheetSizeManager.swift */; };
+		99228B5B2C6F6C7A009A3C2F /* MiningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B5A2C6F6C7A009A3C2F /* MiningViewModel.swift */; };
+		99228B5D2C6F6E55009A3C2F /* Profession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B5C2C6F6E55009A3C2F /* Profession.swift */; };
+		99228B602C723B71009A3C2F /* ComboHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B5F2C723B71009A3C2F /* ComboHintView.swift */; };
+		99228B622C7337D8009A3C2F /* FillEnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B612C7337D7009A3C2F /* FillEnergyView.swift */; };
+		99228B642C7341DD009A3C2F /* ProfitPerHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B632C7341DD009A3C2F /* ProfitPerHourView.swift */; };
+		99228B672C73485A009A3C2F /* DailyReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B662C73485A009A3C2F /* DailyReward.swift */; };
+		99228B692C734C85009A3C2F /* DailyRewardDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B682C734C85009A3C2F /* DailyRewardDayView.swift */; };
+		99228B6B2C7351DB009A3C2F /* DailyRewardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B6A2C7351DB009A3C2F /* DailyRewardViewModel.swift */; };
+		99228B6D2C735FA5009A3C2F /* HamsterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B6C2C735FA5009A3C2F /* HamsterButton.swift */; };
+		99228B6F2C73862C009A3C2F /* TapTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B6E2C73862C009A3C2F /* TapTextView.swift */; };
+		99228B722C749658009A3C2F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B712C749658009A3C2F /* Coordinator.swift */; };
+		99228B742C74B635009A3C2F /* LeagueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B732C74B635009A3C2F /* LeagueDetailView.swift */; };
+		99228B762C750DDB009A3C2F /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B752C750DDB009A3C2F /* League.swift */; };
+		99228B7A2C751426009A3C2F /* LeagueDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B792C751426009A3C2F /* LeagueDetailViewModel.swift */; };
+		99228B7C2C751728009A3C2F /* FloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B7B2C751728009A3C2F /* FloatingPointExtension.swift */; };
+		99228B7F2C753597009A3C2F /* LeagueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B7E2C753597009A3C2F /* LeagueViewModel.swift */; };
+		99228B822C75E150009A3C2F /* ProfessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B812C75E150009A3C2F /* ProfessionViewModel.swift */; };
+		99228B862C75EE79009A3C2F /* ProfessionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B852C75EE78009A3C2F /* ProfessionDetailsViewModel.swift */; };
+		99228B882C762912009A3C2F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B872C762911009A3C2F /* Day.swift */; };
+		99228B8A2C773338009A3C2F /* TimesUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B892C773338009A3C2F /* TimesUpView.swift */; };
+		99228B912C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99228B8F2C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld */; };
+		99228B932C77746D009A3C2F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B922C77746C009A3C2F /* CoreDataStack.swift */; };
+		99228B952C7774A0009A3C2F /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B942C7774A0009A3C2F /* LocalStorage.swift */; };
+		99228B9A2C777599009A3C2F /* ProfessionCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B962C777599009A3C2F /* ProfessionCoreData+CoreDataClass.swift */; };
+		99228B9B2C777599009A3C2F /* ProfessionCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B972C777599009A3C2F /* ProfessionCoreData+CoreDataProperties.swift */; };
+		99228B9C2C777599009A3C2F /* HamsterCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B982C777599009A3C2F /* HamsterCoreData+CoreDataClass.swift */; };
+		99228B9D2C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B992C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift */; };
+		99228BA02C77892D009A3C2F /* TotalProfitPerHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228B9F2C77892D009A3C2F /* TotalProfitPerHourView.swift */; };
+		99228BA92C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA12C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift */; };
+		99228BAA2C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA22C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift */; };
+		99228BAB2C787EDC009A3C2F /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA32C787EDC009A3C2F /* Balance+CoreDataClass.swift */; };
+		99228BAC2C787EDC009A3C2F /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA42C787EDC009A3C2F /* Balance+CoreDataProperties.swift */; };
+		99228BAF2C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA72C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataClass.swift */; };
+		99228BB02C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BA82C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift */; };
+		99228BB32C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */; };
+		99228BB42C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */; };
 		9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */; };
 		9999E9712C628CFF002C0819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9702C628CFF002C0819 /* ContentView.swift */; };
 		9999E9732C628D02002C0819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9999E9722C628D02002C0819 /* Assets.xcassets */; };
@@ -60,6 +97,43 @@
 		99228B522C6F3855009A3C2F /* VerticalCandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCandle.swift; sourceTree = "<group>"; };
 		99228B542C6F385F009A3C2F /* HorizontalCandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCandle.swift; sourceTree = "<group>"; };
 		99228B562C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeWithBounds.swift; sourceTree = "<group>"; };
+		99228B582C6F6A2A009A3C2F /* SheetSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSizeManager.swift; sourceTree = "<group>"; };
+		99228B5A2C6F6C7A009A3C2F /* MiningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningViewModel.swift; sourceTree = "<group>"; };
+		99228B5C2C6F6E55009A3C2F /* Profession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profession.swift; sourceTree = "<group>"; };
+		99228B5F2C723B71009A3C2F /* ComboHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboHintView.swift; sourceTree = "<group>"; };
+		99228B612C7337D7009A3C2F /* FillEnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillEnergyView.swift; sourceTree = "<group>"; };
+		99228B632C7341DD009A3C2F /* ProfitPerHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPerHourView.swift; sourceTree = "<group>"; };
+		99228B662C73485A009A3C2F /* DailyReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReward.swift; sourceTree = "<group>"; };
+		99228B682C734C85009A3C2F /* DailyRewardDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardDayView.swift; sourceTree = "<group>"; };
+		99228B6A2C7351DB009A3C2F /* DailyRewardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardViewModel.swift; sourceTree = "<group>"; };
+		99228B6C2C735FA5009A3C2F /* HamsterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterButton.swift; sourceTree = "<group>"; };
+		99228B6E2C73862C009A3C2F /* TapTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTextView.swift; sourceTree = "<group>"; };
+		99228B712C749658009A3C2F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		99228B732C74B635009A3C2F /* LeagueDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailView.swift; sourceTree = "<group>"; };
+		99228B752C750DDB009A3C2F /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		99228B792C751426009A3C2F /* LeagueDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailViewModel.swift; sourceTree = "<group>"; };
+		99228B7B2C751728009A3C2F /* FloatingPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPointExtension.swift; sourceTree = "<group>"; };
+		99228B7E2C753597009A3C2F /* LeagueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueViewModel.swift; sourceTree = "<group>"; };
+		99228B812C75E150009A3C2F /* ProfessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionViewModel.swift; sourceTree = "<group>"; };
+		99228B852C75EE78009A3C2F /* ProfessionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionDetailsViewModel.swift; sourceTree = "<group>"; };
+		99228B872C762911009A3C2F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		99228B892C773338009A3C2F /* TimesUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpView.swift; sourceTree = "<group>"; };
+		99228B902C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HamsterLocalStorageModel.xcdatamodel; sourceTree = "<group>"; };
+		99228B922C77746C009A3C2F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		99228B942C7774A0009A3C2F /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		99228B962C777599009A3C2F /* ProfessionCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfessionCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228B972C777599009A3C2F /* ProfessionCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfessionCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228B982C777599009A3C2F /* HamsterCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HamsterCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228B992C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HamsterCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228B9F2C77892D009A3C2F /* TotalProfitPerHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalProfitPerHourView.swift; sourceTree = "<group>"; };
+		99228BA12C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BA22C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BA32C787EDC009A3C2F /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BA42C787EDC009A3C2F /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BA72C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniGameTimerCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BA82C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniGameTimerCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyFillRestoreTimerCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyFillRestoreTimerCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9999E96B2C628CFF002C0819 /* HamsterKombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamsterKombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterKombatApp.swift; sourceTree = "<group>"; };
 		9999E9702C628CFF002C0819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +208,99 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
+		99228B5E2C723B5D009A3C2F /* ComboHintView */ = {
+			isa = PBXGroup;
+			children = (
+				99228B5F2C723B71009A3C2F /* ComboHintView.swift */,
+			);
+			path = ComboHintView;
+			sourceTree = "<group>";
+		};
+		99228B652C73484A009A3C2F /* DailyReward */ = {
+			isa = PBXGroup;
+			children = (
+				99228B662C73485A009A3C2F /* DailyReward.swift */,
+				99228B682C734C85009A3C2F /* DailyRewardDayView.swift */,
+				99228B6A2C7351DB009A3C2F /* DailyRewardViewModel.swift */,
+			);
+			path = DailyReward;
+			sourceTree = "<group>";
+		};
+		99228B702C74964C009A3C2F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				99228B712C749658009A3C2F /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		99228B782C751411009A3C2F /* LeagueDetail */ = {
+			isa = PBXGroup;
+			children = (
+				99228B732C74B635009A3C2F /* LeagueDetailView.swift */,
+				99228B792C751426009A3C2F /* LeagueDetailViewModel.swift */,
+			);
+			path = LeagueDetail;
+			sourceTree = "<group>";
+		};
+		99228B7D2C753581009A3C2F /* League */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9982C63649C002C0819 /* LeagueView.swift */,
+				99228B7E2C753597009A3C2F /* LeagueViewModel.swift */,
+			);
+			path = League;
+			sourceTree = "<group>";
+		};
+		99228B832C75E2AD009A3C2F /* ProfessionView */ = {
+			isa = PBXGroup;
+			children = (
+				99228B842C75EE52009A3C2F /* ProfessionDetails */,
+				99228B812C75E150009A3C2F /* ProfessionViewModel.swift */,
+				9999E9A32C63FD26002C0819 /* ProfessionView.swift */,
+			);
+			path = ProfessionView;
+			sourceTree = "<group>";
+		};
+		99228B842C75EE52009A3C2F /* ProfessionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9A72C64BF2D002C0819 /* ProfessionDetailsView.swift */,
+				99228B852C75EE78009A3C2F /* ProfessionDetailsViewModel.swift */,
+			);
+			path = ProfessionDetails;
+			sourceTree = "<group>";
+		};
+		99228B8B2C7773CE009A3C2F /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				99228B9E2C77759E009A3C2F /* Subclasses */,
+				99228B8F2C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld */,
+				99228B922C77746C009A3C2F /* CoreDataStack.swift */,
+				99228B942C7774A0009A3C2F /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		99228B9E2C77759E009A3C2F /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				99228BB12C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift */,
+				99228BB22C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift */,
+				99228BA12C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift */,
+				99228BA22C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift */,
+				99228BA32C787EDC009A3C2F /* Balance+CoreDataClass.swift */,
+				99228BA42C787EDC009A3C2F /* Balance+CoreDataProperties.swift */,
+				99228BA72C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataClass.swift */,
+				99228BA82C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift */,
+				99228B962C777599009A3C2F /* ProfessionCoreData+CoreDataClass.swift */,
+				99228B972C777599009A3C2F /* ProfessionCoreData+CoreDataProperties.swift */,
+				99228B982C777599009A3C2F /* HamsterCoreData+CoreDataClass.swift */,
+				99228B992C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		9999E9622C628CFF002C0819 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +320,8 @@
 		9999E96D2C628CFF002C0819 /* HamsterKombat */ = {
 			isa = PBXGroup;
 			children = (
+				99228B8B2C7773CE009A3C2F /* LocalStorage */,
+				99228B702C74964C009A3C2F /* Coordinator */,
 				9999E96E2C628CFF002C0819 /* HamsterKombatApp.swift */,
 				9999E9E52C68F8EB002C0819 /* DataManager.swift */,
 				9999E9EA2C690705002C0819 /* ViewModelFactory.swift */,
@@ -201,6 +370,7 @@
 				9999E98A2C6290D2002C0819 /* ForegroundColorCustomModifier.swift */,
 				9999E99A2C636F73002C0819 /* RoundedRectangleExtension.swift */,
 				9999E9FF2C6A035E002C0819 /* EnvironmentValues.swift */,
+				99228B7B2C751728009A3C2F /* FloatingPointExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -219,6 +389,8 @@
 				9999E9A52C64288D002C0819 /* MainViewModel.swift */,
 				9999E98D2C62C266002C0819 /* MainView.swift */,
 				9999E98F2C62C27B002C0819 /* Subviews */,
+				99228B582C6F6A2A009A3C2F /* SheetSizeManager.swift */,
+				99228B9F2C77892D009A3C2F /* TotalProfitPerHourView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -226,6 +398,10 @@
 		9999E98F2C62C27B002C0819 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				99228B7D2C753581009A3C2F /* League */,
+				99228B782C751411009A3C2F /* LeagueDetail */,
+				99228B652C73484A009A3C2F /* DailyReward */,
+				99228B5E2C723B5D009A3C2F /* ComboHintView */,
 				9999EA012C6A0916002C0819 /* MiniGame */,
 				9999E9EC2C690EE1002C0819 /* SkinsView */,
 				9999E9E72C690496002C0819 /* BurseView */,
@@ -234,8 +410,10 @@
 				9999E9922C62C593002C0819 /* CoinsForAdButton.swift */,
 				9999E9942C62C64C002C0819 /* TimerView.swift */,
 				9999E9962C6360C9002C0819 /* BuyASkinButton.swift */,
-				9999E9982C63649C002C0819 /* LeagueView.swift */,
 				9999E9F12C691001002C0819 /* CloseButton.swift */,
+				99228B612C7337D7009A3C2F /* FillEnergyView.swift */,
+				99228B632C7341DD009A3C2F /* ProfitPerHourView.swift */,
+				99228B6C2C735FA5009A3C2F /* HamsterButton.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -243,10 +421,10 @@
 		9999E9A22C63FCBD002C0819 /* Mining */ = {
 			isa = PBXGroup;
 			children = (
+				99228B832C75E2AD009A3C2F /* ProfessionView */,
 				9999E9DF2C68DE5D002C0819 /* ProfessionViewSubviews */,
 				9999E9A02C638DBC002C0819 /* MiningView.swift */,
-				9999E9A32C63FD26002C0819 /* ProfessionView.swift */,
-				9999E9A72C64BF2D002C0819 /* ProfessionDetailsView.swift */,
+				99228B5A2C6F6C7A009A3C2F /* MiningViewModel.swift */,
 			);
 			path = Mining;
 			sourceTree = "<group>";
@@ -263,6 +441,9 @@
 			isa = PBXGroup;
 			children = (
 				9999E9E32C68F77F002C0819 /* Hamster.swift */,
+				99228B5C2C6F6E55009A3C2F /* Profession.swift */,
+				99228B752C750DDB009A3C2F /* League.swift */,
+				99228B872C762911009A3C2F /* Day.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +453,7 @@
 			children = (
 				9999E99C2C63811B002C0819 /* BurseView.swift */,
 				9999E9E82C6904E2002C0819 /* BurseViewModel.swift */,
+				99228B6E2C73862C009A3C2F /* TapTextView.swift */,
 			);
 			path = BurseView;
 			sourceTree = "<group>";
@@ -312,6 +494,7 @@
 				9999EA062C6A0FCC002C0819 /* GameView */,
 				9999EA022C6A0929002C0819 /* MiniGameView.swift */,
 				9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */,
+				99228B892C773338009A3C2F /* TimesUpView.swift */,
 			);
 			path = MiniGame;
 			sourceTree = "<group>";
@@ -396,45 +579,82 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99228B7C2C751728009A3C2F /* FloatingPointExtension.swift in Sources */,
+				99228BB32C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataClass.swift in Sources */,
+				99228BB42C787FAF009A3C2F /* EnergyFillRestoreTimerCoreData+CoreDataProperties.swift in Sources */,
 				9999E9852C62902F002C0819 /* TextCustom.swift in Sources */,
 				9999E9EE2C690EF5002C0819 /* SkinsViewModel.swift in Sources */,
 				9999E98E2C62C266002C0819 /* MainView.swift in Sources */,
 				9999E9892C6290BF002C0819 /* FontCustomModifier.swift in Sources */,
+				99228B602C723B71009A3C2F /* ComboHintView.swift in Sources */,
 				9999E9EB2C690706002C0819 /* ViewModelFactory.swift in Sources */,
+				99228B822C75E150009A3C2F /* ProfessionViewModel.swift in Sources */,
 				9999E9A82C64BF2D002C0819 /* ProfessionDetailsView.swift in Sources */,
 				99EB82622C6A26DB00147F23 /* SpaceController.swift in Sources */,
 				9999E98B2C6290D2002C0819 /* ForegroundColorCustomModifier.swift in Sources */,
 				9999E9E62C68F8EB002C0819 /* DataManager.swift in Sources */,
 				9999E9912C62C28E002C0819 /* DailyRewardButton.swift in Sources */,
 				99228B512C6F3849009A3C2F /* KeySprite.swift in Sources */,
+				99228B9A2C777599009A3C2F /* ProfessionCoreData+CoreDataClass.swift in Sources */,
+				99228B9B2C777599009A3C2F /* ProfessionCoreData+CoreDataProperties.swift in Sources */,
+				99228B9C2C777599009A3C2F /* HamsterCoreData+CoreDataClass.swift in Sources */,
+				99228B9D2C777599009A3C2F /* HamsterCoreData+CoreDataProperties.swift in Sources */,
+				99228B8A2C773338009A3C2F /* TimesUpView.swift in Sources */,
+				99228B912C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld in Sources */,
+				99228B882C762912009A3C2F /* Day.swift in Sources */,
 				9999EA032C6A0929002C0819 /* MiniGameView.swift in Sources */,
 				9999E9992C63649C002C0819 /* LeagueView.swift in Sources */,
 				9999E99D2C63811B002C0819 /* BurseView.swift in Sources */,
 				9999EA002C6A035E002C0819 /* EnvironmentValues.swift in Sources */,
+				99228B7A2C751426009A3C2F /* LeagueDetailViewModel.swift in Sources */,
 				9999E9822C628E0A002C0819 /* ImageTitles.swift in Sources */,
+				99228B722C749658009A3C2F /* Coordinator.swift in Sources */,
+				99228B6F2C73862C009A3C2F /* TapTextView.swift in Sources */,
 				99228B572C6F3983009A3C2F /* SKSpriteNodeWithBounds.swift in Sources */,
 				9999E9972C6360C9002C0819 /* BuyASkinButton.swift in Sources */,
 				9999E9FC2C6925C7002C0819 /* SkinsListView.swift in Sources */,
+				99228B5D2C6F6E55009A3C2F /* Profession.swift in Sources */,
 				9999E9952C62C64C002C0819 /* TimerView.swift in Sources */,
+				99228B952C7774A0009A3C2F /* LocalStorage.swift in Sources */,
 				9999E9F42C691453002C0819 /* SelectedSkinView.swift in Sources */,
 				9999E9A42C63FD26002C0819 /* ProfessionView.swift in Sources */,
+				99228B672C73485A009A3C2F /* DailyReward.swift in Sources */,
+				99228B692C734C85009A3C2F /* DailyRewardDayView.swift in Sources */,
 				9999E9A12C638DBC002C0819 /* MiningView.swift in Sources */,
+				99228B862C75EE79009A3C2F /* ProfessionDetailsViewModel.swift in Sources */,
 				99228B532C6F3855009A3C2F /* VerticalCandle.swift in Sources */,
 				99228B4E2C6F382B009A3C2F /* GameScene.swift in Sources */,
+				99228B622C7337D8009A3C2F /* FillEnergyView.swift in Sources */,
+				99228B932C77746D009A3C2F /* CoreDataStack.swift in Sources */,
 				9999E9E12C68DE7B002C0819 /* ProfessionViewDescription.swift in Sources */,
+				99228B7F2C753597009A3C2F /* LeagueViewModel.swift in Sources */,
+				99228BA02C77892D009A3C2F /* TotalProfitPerHourView.swift in Sources */,
 				9999E9932C62C593002C0819 /* CoinsForAdButton.swift in Sources */,
 				9999E9F22C691001002C0819 /* CloseButton.swift in Sources */,
 				9999E9F72C6916A0002C0819 /* SelectedSkinViewModel.swift in Sources */,
+				99228B642C7341DD009A3C2F /* ProfitPerHourView.swift in Sources */,
 				9999EA052C6A0EAF002C0819 /* MiniGameLaunchView.swift in Sources */,
 				9999E9A62C64288D002C0819 /* MainViewModel.swift in Sources */,
 				9999E9FE2C6926A4002C0819 /* SkinListItemView.swift in Sources */,
+				99228B592C6F6A2A009A3C2F /* SheetSizeManager.swift in Sources */,
 				9999E9E42C68F77F002C0819 /* Hamster.swift in Sources */,
+				99228B742C74B635009A3C2F /* LeagueDetailView.swift in Sources */,
 				9999E9712C628CFF002C0819 /* ContentView.swift in Sources */,
+				99228B6B2C7351DB009A3C2F /* DailyRewardViewModel.swift in Sources */,
 				9999E9FA2C6925B3002C0819 /* SkinsListViewModel.swift in Sources */,
+				99228B762C750DDB009A3C2F /* League.swift in Sources */,
 				9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */,
 				9999E9E92C6904E2002C0819 /* BurseViewModel.swift in Sources */,
 				99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */,
+				99228B5B2C6F6C7A009A3C2F /* MiningViewModel.swift in Sources */,
 				9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */,
+				99228B6D2C735FA5009A3C2F /* HamsterButton.swift in Sources */,
+				99228BA92C787EDC009A3C2F /* EnergyCoreData+CoreDataClass.swift in Sources */,
+				99228BAA2C787EDC009A3C2F /* EnergyCoreData+CoreDataProperties.swift in Sources */,
+				99228BAB2C787EDC009A3C2F /* Balance+CoreDataClass.swift in Sources */,
+				99228BAC2C787EDC009A3C2F /* Balance+CoreDataProperties.swift in Sources */,
+				99228BAF2C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataClass.swift in Sources */,
+				99228BB02C787EDC009A3C2F /* MiniGameTimerCoreData+CoreDataProperties.swift in Sources */,
 				9999E9872C629093002C0819 /* UIFontExtension.swift in Sources */,
 				9999EA082C6A0FD9002C0819 /* GameView.swift in Sources */,
 				9999E97F2C628DB4002C0819 /* LoadingView.swift in Sources */,
@@ -574,6 +794,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HamsterKombat/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "kombatant VS clicker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -607,6 +828,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HamsterKombat/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "kombatant VS clicker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -652,6 +874,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		99228B8F2C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				99228B902C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodel */,
+			);
+			currentVersion = 99228B902C7773FC009A3C2F /* HamsterLocalStorageModel.xcdatamodel */;
+			name = HamsterLocalStorageModel.xcdatamodeld;
+			path = /Users/lucifer/Documents/SwiftProjects/HamsterKombat/HamsterKombat/LocalStorage/HamsterLocalStorageModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9999E9632C628CFF002C0819 /* Project object */;
 }

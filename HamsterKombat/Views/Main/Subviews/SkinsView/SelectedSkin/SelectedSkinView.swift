@@ -28,9 +28,10 @@ struct SelectedSkinView: View {
                     Image(systemName: "chevron.left")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColorCustom(.white.opacity(0.4))
+                        .foregroundColorCustom(.white.opacity(selection == 0 ? 0.1 : 0.4))
                         .frame(width: 66, height: 66)
                 }
+                .disabled(selection == 0)
                 
                 Spacer()
                 
@@ -44,9 +45,10 @@ struct SelectedSkinView: View {
                     Image(systemName: "chevron.right")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColorCustom(.white.opacity(0.4))
+                        .foregroundColorCustom(.white.opacity(selection == viewModel.hamstersCount - 1 ? 0.1 : 0.4))
                         .frame(width: 66, height: 66)
                 }
+                .disabled(selection == viewModel.hamstersCount - 1)
             }
         )
     }
