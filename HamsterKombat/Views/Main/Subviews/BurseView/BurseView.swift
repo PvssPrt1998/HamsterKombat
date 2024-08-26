@@ -11,6 +11,11 @@ struct BurseView: View {
     @Binding var showDailyReward: Bool
     @Binding var showBoostView: Bool
     
+    @State var leadingOffset1: CGFloat = 70
+    @State var leadingOffset2: CGFloat = 70
+    @State var leadingOffset3: CGFloat = 70
+    @State var coinPadding: CGFloat = 70
+    
     var burseView: some View {
             VStack(spacing: 16) {
                 //MARK: - three buttons on top of sheet
@@ -32,6 +37,7 @@ struct BurseView: View {
                                 }
                             )
                     }
+                    .offset(x: leadingOffset1)
                     
                     Button {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -50,6 +56,7 @@ struct BurseView: View {
                                 }
                             )
                     }
+                    .offset(x: leadingOffset2)
                         
                     Button {
                         if viewModel.miniGameAvailable {
@@ -81,6 +88,7 @@ struct BurseView: View {
                             )
                     }
                     .disabled(!viewModel.miniGameAvailable)
+                    .offset(x: leadingOffset3)
                 }
                 .padding(.top, 38)
             
@@ -110,6 +118,7 @@ struct BurseView: View {
                         .overlay(
                             tapText()
                         )
+                        .padding(coinPadding)
                     //
                 }
                 HStack(spacing: 9) {
@@ -134,12 +143,23 @@ struct BurseView: View {
                         TextCustom(text: "Boost", size: 16, weight: .semibold, color: .white)
                     }
                     .onTapGesture {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         showBoostView = true
                     }
                 }
                 .padding(EdgeInsets(top: -12, leading: 15, bottom: 0, trailing: 15))
             }
             .frame(maxHeight: .infinity, alignment: .top)
+            .onAppear {
+                withAnimation(.spring(duration: 0.1, bounce: 0.7)) {
+                    leadingOffset1 = 0
+                    leadingOffset2 = 0
+                    leadingOffset3 = 0
+                }
+                withAnimation(.linear(duration: 0.1)) {
+                    coinPadding = 0
+                }
+            }
     }
     
     var body: some View {

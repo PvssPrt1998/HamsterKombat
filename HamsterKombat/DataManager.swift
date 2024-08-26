@@ -141,6 +141,7 @@ final class DataManager: ObservableObject {
     }
     
     func saveData() {
+        print(balance)
         setDate()
         localStorage.saveBalance(balance)
         localStorage.save(combo: combo)

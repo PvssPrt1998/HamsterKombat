@@ -12,53 +12,62 @@ struct MiniGameView: View {
     
     var body: some View {
         ZStack {
-            if !launchView && viewModel.miniGameTimer > 0 {
-                GameView(win: $viewModel.win, miniGameActive: $showMiniGame, viewModel: viewModelFactory.makeGameViewModel())
-                    .padding(.leading, 14)
-                    .frame(maxWidth: .infinity)
-            } else if !launchView && viewModel.miniGameTimer <= 0 {
-                TimesUpView(viewModel: viewModelFactory.makeTimesUpViewModel()) {
-                    viewModel.setMiniGameTimer60()
-                }
-            } else {
-                MiniGameLaunchView(action: {
-                    viewModel.setMiniGameTimer60()
-                    launchView = false})
-            }
-            
-            CloseButton(action: {
-                if !launchView && viewModel.miniGameTimer > 0 {
-                    viewModel.setReloadTimer()
-                }
+            Color.black.opacity(0.5).ignoresSafeArea()
+                .onTapGesture {
                     sheetSizeManager.dismissSheet()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         showMiniGame = false
                     }
-                })
-                .padding(24)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-        }
-        .frame(maxWidth: .infinity)
-        .background(
-            Image(ImageTitles.SheetRectangle.rawValue)
-                .resizable()
-        )
-        .ignoresSafeArea(.container, edges: .bottom)
-        .offset(x: 0, y: sheetSizeManager.topPadding)
-        .onAppear {
-            sheetSizeManager.appearance()
-        }
-        .onReceive(viewModel.$win) { value in
-            if value {
-                viewModel.getMoney()
+                }
+            ZStack {
                 if !launchView && viewModel.miniGameTimer > 0 {
-                    viewModel.setWinReloadTimer()
+                    GameView(win: $viewModel.win, miniGameActive: $showMiniGame, viewModel: viewModelFactory.makeGameViewModel())
+                        .padding(.leading, 14)
+                        .frame(maxWidth: .infinity)
+                } else if !launchView && viewModel.miniGameTimer <= 0 {
+                    TimesUpView(viewModel: viewModelFactory.makeTimesUpViewModel()) {
+                        viewModel.setMiniGameTimer60()
+                    }
+                } else {
+                    MiniGameLaunchView(action: {
+                        viewModel.setMiniGameTimer60()
+                        launchView = false})
                 }
-                sheetSizeManager.dismissSheet()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    showMiniGame = false
-                }
+                
+                CloseButton(action: {
+                    if !launchView && viewModel.miniGameTimer > 0 {
+                        viewModel.setReloadTimer()
+                    }
+                        sheetSizeManager.dismissSheet()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            showMiniGame = false
+                        }
+                    })
+                    .padding(24)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             }
+            .frame(maxWidth: .infinity)
+            .background(
+                Image(ImageTitles.SheetRectangle.rawValue)
+                    .resizable()
+            )
+            .ignoresSafeArea(.container, edges: .bottom)
+            .offset(x: 0, y: sheetSizeManager.topPadding)
+            .onAppear {
+                sheetSizeManager.appearance()
+            }
+            .onReceive(viewModel.$win) { value in
+                if value {
+                    viewModel.getMoney()
+                    if !launchView && viewModel.miniGameTimer > 0 {
+                        viewModel.setWinReloadTimer()
+                    }
+                    sheetSizeManager.dismissSheet()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showMiniGame = false
+                    }
+                }
+        }
         }
     }
 }

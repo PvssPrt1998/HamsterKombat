@@ -26,6 +26,7 @@ struct MainView: View {
                 if viewModel.screenType == .burse {
                     HStack(spacing: 5) {
                         DailyRewardButton {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             showEveryHourView = true
                         }
                         TotalProfitPerHourView(viewModel: viewModelFactory.makeTotalProfitPerHourViewModel())
@@ -33,10 +34,12 @@ struct MainView: View {
                     .padding(.horizontal, 15)
                     HStack {
                         BuyASkinButton {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             showSkinsView = true
                         }
                         Spacer()
                         LeagueView(viewModel: viewModelFactory.makeLeagueViewModel()) {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             showLeagueView = true
                         }
                     }
