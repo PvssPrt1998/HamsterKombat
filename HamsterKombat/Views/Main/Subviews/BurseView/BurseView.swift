@@ -108,7 +108,7 @@ struct BurseView: View {
                 }
                 
                 //MARK: - Hamster
-                    HamsterButton(imageTitle: viewModel.selectedImageTitle(), disabled: viewModel.isTapDisabled()) {
+                    HamsterButton(initialImageTitle: viewModel.selectedImageTitle, imageTitle: $viewModel.selectedImageTitle, disabled: viewModel.isTapDisabled()) {
                             viewModel.tap()
                         }
                         .simultaneousGesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)

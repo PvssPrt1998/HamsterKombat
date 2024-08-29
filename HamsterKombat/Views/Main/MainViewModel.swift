@@ -56,20 +56,21 @@ final class MainViewModel: ObservableObject {
     func getTimer() ->  Publishers.Autoconnect<Timer.TimerPublisher> {
         return dataManager.timer
     }
-
+    
     
     func addEveryHourReward(_ date: Date) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
-        let dateString = dateFormatter.string(from: date)
-        let dateComponents = dateString.components(separatedBy: ".")
-        if dateComponents[4] == "00" && !everyHourRewardIssued {
-            dataManager.balance += dataManager.rewardPerHour
-            everyHourRewardIssued = true
-        } else {
-            everyHourRewardIssued = false
-        }
+        dataManager.calculateRewardPerSecond()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+//        dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
+//        let dateString = dateFormatter.string(from: date)
+//        let dateComponents = dateString.components(separatedBy: ".")
+//        if dateComponents[4] == "00" && !everyHourRewardIssued {
+//            dataManager.balance += dataManager.rewardPerHour
+//            everyHourRewardIssued = true
+//        } else {
+//            everyHourRewardIssued = false
+//        }
     }
     
     

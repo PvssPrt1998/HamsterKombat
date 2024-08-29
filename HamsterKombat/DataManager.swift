@@ -12,6 +12,9 @@ final class DataManager: ObservableObject {
         }
     }
     @Published var rewardPerHour: Int = 0
+    
+    var rewardPerSecond: Double = 0
+    
     @Published var energy: Int = 1500
     @Published var energyTimer: Int = 0
     
@@ -45,7 +48,7 @@ final class DataManager: ObservableObject {
     
     var dateString: String = "21.08.2024.00.00"
 
-    var selectedHamsterId: Int = 0
+    @Published var selectedHamsterId: Int = 0
     
     @Published var rewards: Array<Day> = [
         Day(reward: 500, got: false),
@@ -60,11 +63,7 @@ final class DataManager: ObservableObject {
         Day(reward: 5000000, got: false)
     ]
     
-    var selectedHamster: Hamster {
-        didSet {
-            selectedHamsterId = selectedHamster.id
-        }
-    }
+    var selectedHamster: Hamster
     
     let profitIndexes: Array<Double> = [1, 1.07, 1.14, 1.23, 1.31, 1.4, 1.5, 1.61, 1.72, 1.84, 1.97, 2.1, 2.25, 2.41, 2.58, 2.76, 2.95, 3.16, 3.38, 3.62]
     let priceIndexes: Array<Double> = [1, 1.1, 1.28, 1.55, 1.98, 2.65, 3.73, 5.52, 8.56, 13.9, 23.8, 42.8, 80.7, 160, 332, 725, 1663, 4001, 10111, 26826]
@@ -141,7 +140,6 @@ final class DataManager: ObservableObject {
     }
     
     func saveData() {
-        print(balance)
         setDate()
         localStorage.saveBalance(balance)
         localStorage.save(combo: combo)
@@ -307,23 +305,20 @@ final class DataManager: ObservableObject {
     
     func setTapValueLevelPrice() {
         tapValueLevelPrice = 1000
-        for index in 1...tapValueLevel {
-            tapValueLevelPrice = index
+        for _ in 1...tapValueLevel {
+            tapValueLevelPrice *= 2
         }
     }
     func setEnergyLevelPrice() {
         maxEnergyLevelPrice = 1000
-        for index in 1...maxEnergyLevel {
-            maxEnergyLevelPrice *= index
+        for _ in 1...maxEnergyLevel {
+            maxEnergyLevelPrice *= 2
         }
     }
     
     func getRewardPerHourInitial() {
-        guard let savedDate = stringToDate() else { return }
-        let hours = Date().hour(from: savedDate)
-        if hours > 0 {
-            balance += hours * rewardPerHour
-        }
+        let seconds = secondsFromSavedDate()
+        balance += Int(Double(seconds) * (Double(rewardPerHour) / 3600))
     }
     
     func stringToDate() -> Date? {
@@ -346,6 +341,7 @@ final class DataManager: ObservableObject {
             professions[id].price = Int(Double(professions[id].initialPrice) * priceIndexes[professions[id].level])
         }
         localStorage.editProfession(professions[id])
+        localStorage.saveBalance(balance)
     }
     
     func tapValueLevelUp() {
@@ -354,6 +350,7 @@ final class DataManager: ObservableObject {
         tapValueLevel += 1
         setTapValueLevelPrice()
         localStorage.editTapValue(tapValue, tapValueLevel: tapValueLevel)
+        localStorage.saveBalance(balance)
     }
     
     func maxEnergyLevelUp() {
@@ -362,6 +359,7 @@ final class DataManager: ObservableObject {
         maxEnergyLevel += 1
         setEnergyLevelPrice()
         localStorage.editEnergyLevel(maxEnergy, energyLevel: maxEnergyLevel)
+        localStorage.saveBalance(balance)
     }
     
     func getValueForNewLeague() -> Int {
@@ -381,6 +379,7 @@ final class DataManager: ObservableObject {
     }
     
     func leagueCheck() {
+        var leagueId = 0
         switch balance {
         case 0..<5000: leagueId = 0
         case 5000..<25000: leagueId = 1
@@ -479,6 +478,15 @@ final class DataManager: ObservableObject {
         for index in 0..<rewards.count {
             rewards[index].got = false
             localStorage.saveReward(id: index, got: false)
+        }
+    }
+    
+    func calculateRewardPerSecond() {
+        rewardPerSecond += Double(rewardPerHour) / 3600
+        if rewardPerSecond > 1 {
+            let div: Double = rewardPerSecond - Double(Int(rewardPerSecond))
+            balance += Int(rewardPerSecond)
+            rewardPerSecond = div
         }
     }
 }

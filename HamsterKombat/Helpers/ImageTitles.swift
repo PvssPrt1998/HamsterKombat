@@ -86,4 +86,17 @@ enum ImageTitles: String {
     
     case Alarm
     case AlarmIcon
+    
+    case Spark
+    case Spark1
+    
+    case DefaultHamsterState2
+    case DefaultHamsterState3
+    case DefaultHamsterState4
+    case DefaultHamsterState5
+    case DefaultHamsterState6
+    case DefaultHamsterState7
+    case DefaultHamsterState8
+    
+    case HamsterButtonBackground
 }

@@ -59,6 +59,7 @@ final class SkinsViewModel: ObservableObject {
     
     func buttonPressed() {
         if dataManager.hamsters[selection].isAvailable {
+            dataManager.selectedHamsterId = selection
             dataManager.selectedHamster = dataManager.hamsters[selection]
         } else {
             dataManager.hamsters[selection].isAvailable = true

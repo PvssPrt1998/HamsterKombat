@@ -23,9 +23,13 @@ struct LoadingView: View {
                         .padding(.top, 29)
                     TextCustom(text: "Hamster Kombat Token", size: 32, weight: .bold, color: .textOrange)
                         .padding(.top, 29)
+                        .hidden()
                     TextCustom(text: "will be launched", size: 20, weight: .bold, color: .white.opacity(0.48))
+                        .hidden()
                     TextCustom(text: "on TON", size: 80, weight: .black, color: .white)
+                        .hidden()
                     TextCustom(text: "Stay tuned", size: 20, weight: .bold, color: .white.opacity(0.48))
+                        .hidden()
                 }
         }
         .onAppear {

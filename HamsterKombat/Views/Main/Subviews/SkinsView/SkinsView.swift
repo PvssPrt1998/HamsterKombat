@@ -7,6 +7,12 @@ struct SkinsView: View {
     
     @Binding var showSkinsView: Bool
     
+    @State var origin: CGPoint = .zero
+    @State var origin1: CGPoint = .zero
+    @State var origin2: CGPoint = .zero
+    @State var origin3: CGPoint = .zero
+    @State var coinsOpacity: CGFloat = 0
+    
     @StateObject var sheetSizeManager: SheetSizeManager
     
     @EnvironmentObject var viewModelFactory: ViewModelFactory
@@ -39,13 +45,51 @@ struct SkinsView: View {
                             Image(viewModel.isMoneyEnough ? ImageTitles.CoinDollarIcon.rawValue : ImageTitles.SilverCoin.rawValue)
                                 .resizable()
                                 .scaledToFit()
+                                .background(
+                                    GeometryReader { geo in
+                                        Color.clear.onAppear(perform: {
+                                            DispatchQueue.main.async {
+                                                origin = geo.frame(in: .global).origin
+                                                origin1 = geo.frame(in: .global).origin
+                                                origin2 = geo.frame(in: .global).origin
+                                                origin3 = geo.frame(in: .global).origin
+                                            }
+                                        })
+                                    }
+                                )
                             TextCustom(text: viewModel.price, size: 20, weight: .bold, color: .white.opacity(viewModel.isMoneyEnough ? 1 : 0.4))
                         }
                         .frame(height: 44)
                     }
                     Button {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        if viewModel.buttonTitle() == "Buy" {
+                            coinsOpacity = 1
+                            withAnimation(.linear(duration: 1)) {
+                                origin = .zero
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                withAnimation(.linear(duration: 1)) {
+                                    origin1 = .zero
+                                }
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                withAnimation(.linear(duration: 1)) {
+                                    origin2 = .zero
+                                }
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                                withAnimation(.linear(duration: 1)) {
+                                    origin3 = .zero
+                                }
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                                coinsOpacity = 0
+                            }
+                        }
                         viewModel.buttonPressed()
+                        
                     } label: {
                         TextCustom(text: viewModel.buttonTitle(), size: 16, weight: .semibold, color: .white)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -79,8 +123,41 @@ struct SkinsView: View {
             .offset(x: 0, y: sheetSizeManager.topPadding)
             .onAppear {
                 sheetSizeManager.appearance()
+            }
+            .overlay(
+                coinViews()
+            )
         }
+    }
+    
+    func coinViews() -> some View {
+        ZStack {
+            Image(ImageTitles.CoinDollarIcon.rawValue)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 44)
+                .padding(EdgeInsets(top: origin.y, leading: origin.x, bottom: 0, trailing: 0))
+                .opacity(coinsOpacity)
+            Image(ImageTitles.CoinDollarIcon.rawValue)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 44)
+                .padding(EdgeInsets(top: origin1.y, leading: origin1.x, bottom: 0, trailing: 0))
+                .opacity(coinsOpacity)
+            Image(ImageTitles.CoinDollarIcon.rawValue)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 44)
+                .padding(EdgeInsets(top: origin2.y, leading: origin2.x, bottom: 0, trailing: 0))
+                .opacity(coinsOpacity)
+            Image(ImageTitles.CoinDollarIcon.rawValue)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 44)
+                .padding(EdgeInsets(top: origin3.y, leading: origin3.x, bottom: 0, trailing: 0))
+                .opacity(coinsOpacity)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 

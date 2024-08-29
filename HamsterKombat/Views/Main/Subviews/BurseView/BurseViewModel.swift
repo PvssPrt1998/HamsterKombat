@@ -15,6 +15,8 @@ final class BurseViewModel: ObservableObject {
         dataManager.tapValue
     }
     
+    @Published var selectedImageTitle: String
+    
     @Published var timerValue: Int
     
     private var balanceCancellable: AnyCancellable?
@@ -50,11 +52,16 @@ final class BurseViewModel: ObservableObject {
     ]
     
     private var miniGameReloadCancellable: AnyCancellable?
+    private var skinAnyCancellable: AnyCancellable?
     
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         timerValue = dataManager.miniGameReloadTimer
         maxEnergy = dataManager.maxEnergy
+        self.selectedImageTitle = dataManager.imageTitleBy(id: dataManager.selectedHamster.id)
+        skinAnyCancellable = dataManager.$selectedHamsterId.sink {  [weak self] value in
+            self?.selectedImageTitle = dataManager.imageTitleBy(id: value)
+        }
         balanceCancellable = dataManager.$balance.sink { [weak self] _ in
             self?.objectWillChange.send()
         }
@@ -116,10 +123,6 @@ final class BurseViewModel: ObservableObject {
                 dataManager.energy = maxEnergy
             }
         }
-    }
-    
-    func selectedImageTitle() -> String {
-        dataManager.imageTitleBy(id: dataManager.selectedHamster.id)
     }
     
     func balanceString() -> String {
