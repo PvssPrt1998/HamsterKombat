@@ -15,9 +15,14 @@ final class BurseViewModel: ObservableObject {
         dataManager.tapValue
     }
     
-    @Published var selectedImageTitle: String
+    @Published var bombTimer = 0
     
+    @Published var selectedImageTitle: String
     @Published var timerValue: Int
+    
+    var bombProgress: Int {
+        dataManager.bombProgress
+    }
     
     private var balanceCancellable: AnyCancellable?
     private var energyCancellable: AnyCancellable?
@@ -70,6 +75,25 @@ final class BurseViewModel: ObservableObject {
         }
         miniGameReloadCancellable = dataManager.$miniGameReloadTimer.sink { [weak self] value in
             self?.timerValue = value
+        }
+    }
+    
+    func bombImageTitle() -> String {
+        if dataManager.bombProgress <= dataManager.maxEnergy / 4 {
+            return ImageTitles.Bomb3.rawValue
+        }
+        if dataManager.bombProgress <= dataManager.maxEnergy / 2 {
+            if bombTimer > 0 {
+                return ImageTitles.BombFiring2.rawValue
+            } else {
+                return ImageTitles.Bomb2.rawValue
+            }
+        } else {
+            if bombTimer > 0 {
+                return ImageTitles.BombFiring1.rawValue
+            } else {
+                return ImageTitles.Bomb1.rawValue
+            }
         }
     }
     
@@ -151,6 +175,16 @@ final class BurseViewModel: ObservableObject {
     func tap() {
         dataManager.balance += dataManager.tapValue
         energyDecrease()
+        bombCheck()
+    }
+    
+    func bombCheck() {
+        if dataManager.bombProgress > 0 {
+            dataManager.bombProgress -= dataManager.tapValue
+        } else {
+            dataManager.balance += dataManager.maxEnergy / 2
+            dataManager.bombProgress = dataManager.maxEnergy
+        }
     }
     
     func tapValue(x: CGFloat, y: CGFloat) {

@@ -46,9 +46,13 @@ final class DataManager: ObservableObject {
     @Published var dayIndex: Int = 0
     @Published var dailyRewardDay = ""
     
+    var showInitialExplode = false
+    
     var dateString: String = "21.08.2024.00.00"
 
     @Published var selectedHamsterId: Int = 0
+    
+    @Published var bombProgress = 1500
     
     @Published var rewards: Array<Day> = [
         Day(reward: 500, got: false),
@@ -96,7 +100,9 @@ final class DataManager: ObservableObject {
         toNextDayTimer = secondsForNextDay()
     }
     
-    func firstLaunchPrepares() {
+    @discardableResult
+    func firstLaunchPrepares() -> Bool {
+        var firstLaunchLocal = false
         if firstLaunch {
             for index in 0..<rewards.count {
                 localStorage.saveReward(id: index, got: false)
@@ -127,8 +133,10 @@ final class DataManager: ObservableObject {
             combo.append((numbersArray[third],false))
             numbersArray.remove(at: third)
             localStorage.save(combo: combo)
+            firstLaunchLocal = true
         }
         firstLaunch = false
+        return firstLaunchLocal
     }
     
     func setDate() {
@@ -137,6 +145,10 @@ final class DataManager: ObservableObject {
         dateFormatter.dateFormat = "dd.MM.yyyy.HH.mm"
         let dateString = dateFormatter.string(from: Date())
         self.dateString = dateString
+    }
+    
+    func saveParameters() {
+        localStorage.saveParameters(leagueId: leagueId, selectedHamsterId: selectedHamsterId)
     }
     
     func saveData() {
@@ -163,7 +175,10 @@ final class DataManager: ObservableObject {
     }
     
     func loadLocalData() {
-        firstLaunchPrepares()
+        let firstLaunchCheck = firstLaunchPrepares()
+        if firstLaunchCheck {
+            showInitialExplode = true
+        }
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else { return }
             if let professionsCoreData = try? localStorage.fetchProfessions() {
@@ -229,6 +244,7 @@ final class DataManager: ObservableObject {
             dailyRewardInitialCheck()
             setTapValueLevelPrice()
             comboFillCheck()
+            bombProgress = maxEnergy
             DispatchQueue.main.async {
                 self.localDataLoaded = true
             }

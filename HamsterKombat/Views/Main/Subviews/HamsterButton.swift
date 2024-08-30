@@ -30,21 +30,22 @@ struct HamsterButton: View {
                 }
             }
         } label: {
-            //Circle()
             Image(ImageTitles.HamsterButtonBackground.rawValue)
                 .resizable()
-                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .clipShape(Circle())
+                .contentShape(Circle())
+            
         }
+        .contentShape(Circle())
         .buttonStyle(HamsterButtonStyle(imageTitle: $imageTitle))
         .disabled(disabled)
         .overlay(
             Image(ImageTitles.Spark1.rawValue)
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .rotationEffect(.degrees(sparkRotateValue))
                 .allowsHitTesting(false)
-                .padding(6)
                 .opacity(sparking ? 1 : 0)
         )
         .onReceive(timerWrapper.timer){ value in
@@ -61,7 +62,6 @@ struct HamsterButton: View {
                 sparkRotateValue = 360
             }
         }
-        
     }
     
     func changeImage() {
@@ -114,7 +114,6 @@ struct HamsterButton: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 8.4) {
             imageChanging = false
         }
-        
     }
 }
 
@@ -131,19 +130,6 @@ struct HamsterButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .overlay(
-                Image(ImageTitles.HamsterButtonBackground.rawValue)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(Circle()))
-//                Circle()
-//                    .fill(
-//                        LinearGradient(
-//                        colors:
-//                            [
-//                                configuration.isPressed ? .onTap1 : .orangeBottomGradient,  configuration.isPressed ? .onTap2 : .orangeTopGradient],
-//                        startPoint: .bottom, endPoint: .top))
-//                    )
-            .overlay(
                 Image(imageTitle)
                     .resizable()
                     .scaledToFit()
@@ -151,19 +137,11 @@ struct HamsterButtonStyle: ButtonStyle {
             )
             .padding(configuration.isPressed ? 27 : 17)
             .background(
-                    Image(ImageTitles.HamsterButtonBackground.rawValue)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(Circle())
-                        .rotationEffect(.degrees(20))
-//                Circle()
-//                    .fill(
-//                        LinearGradient(
-//                        colors: [.orangeTopGradient, .orangeBottomGradient],
-//                        startPoint: .bottom, endPoint: .top)
-//                    )
+                Image(ImageTitles.HamsterButtonBackground.rawValue)
+                    .resizable()
+                    .clipShape(Circle())
+                    .rotationEffect(.degrees(20))
             )
-            //.shadow(color: .hamsterTapAreaShadow, radius: 25)
             .padding(.horizontal, 15)
     }
     

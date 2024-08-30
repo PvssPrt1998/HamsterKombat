@@ -99,4 +99,14 @@ enum ImageTitles: String {
     case DefaultHamsterState8
     
     case HamsterButtonBackground
+    
+    case Explode
+    case Bomb1
+    case Bomb2
+    case Bomb3
+    case BombFiring1
+    case BombFiring2
+    case CoinsRain
+    
+    case Greeting
 }

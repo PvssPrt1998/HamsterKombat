@@ -102,6 +102,7 @@
 		9999EA032C6A0929002C0819 /* MiniGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA022C6A0929002C0819 /* MiniGameView.swift */; };
 		9999EA052C6A0EAF002C0819 /* MiniGameLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */; };
 		9999EA082C6A0FD9002C0819 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999EA072C6A0FD9002C0819 /* GameView.swift */; };
+		99E171252C81A7260074901D /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E171242C81A7260074901D /* ExplodeView.swift */; };
 		99EB82622C6A26DB00147F23 /* SpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB82612C6A26DB00147F23 /* SpaceController.swift */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,7 @@
 		9999EA022C6A0929002C0819 /* MiniGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameView.swift; sourceTree = "<group>"; };
 		9999EA042C6A0EAF002C0819 /* MiniGameLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameLaunchView.swift; sourceTree = "<group>"; };
 		9999EA072C6A0FD9002C0819 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		99E171242C81A7260074901D /* ExplodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplodeView.swift; sourceTree = "<group>"; };
 		99EB82612C6A26DB00147F23 /* SpaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -456,6 +458,7 @@
 				99228B612C7337D7009A3C2F /* FillEnergyView.swift */,
 				99228B632C7341DD009A3C2F /* ProfitPerHourView.swift */,
 				99228B6C2C735FA5009A3C2F /* HamsterButton.swift */,
+				99E171242C81A7260074901D /* ExplodeView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				99228B762C750DDB009A3C2F /* League.swift in Sources */,
 				9999E96F2C628CFF002C0819 /* HamsterKombatApp.swift in Sources */,
 				9999E9E92C6904E2002C0819 /* BurseViewModel.swift in Sources */,
+				99E171252C81A7260074901D /* ExplodeView.swift in Sources */,
 				99228B552C6F385F009A3C2F /* HorizontalCandle.swift in Sources */,
 				99228B5B2C6F6C7A009A3C2F /* MiningViewModel.swift in Sources */,
 				9999E99B2C636F73002C0819 /* RoundedRectangleExtension.swift in Sources */,

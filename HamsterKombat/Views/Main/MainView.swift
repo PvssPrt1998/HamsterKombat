@@ -16,6 +16,7 @@ struct MainView: View {
     @State var showLeagueView: Bool = false
     @State var showComboHintView: Bool = false
     @State var showBoostView: Bool = false
+    @State var showExplodeView: Bool = false
     
     @State var professionId: Int = 0
     
@@ -59,7 +60,7 @@ struct MainView: View {
                 
                 viewType()
                     .padding(.horizontal, 14)
-                    .padding(.bottom, 59)
+                    .padding(.bottom, 51)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
                     Image(ImageTitles.SheetRectangle.rawValue)
@@ -143,6 +144,9 @@ struct MainView: View {
             if showBoostView {
                 FillEnergyView(showFillEnergyView: $showBoostView, viewModel: viewModelFactory.makeFillEnergyViewModel(), sheetSizeManager: SheetSizeManager(screenHeight: sc.height))
             }
+            if showExplodeView {
+                ExplodeView(showExplode: $showExplodeView, greeting: viewModel.showInitialExplode)
+            }
         }
         .background(
             GeometryReader { geo in
@@ -154,6 +158,18 @@ struct MainView: View {
                 })
             }
         )
+        .onAppear {
+            if viewModel.showInitialExplode {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    showExplodeView = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                        showExplodeView = false
+                        viewModel.dataManager.showInitialExplode = false
+                    }
+                }
+                
+            }
+        }
         .onReceive(viewModel.getTimer()) { input in
             viewModel.energyIncrease()
             viewModel.addEveryHourReward(input)
@@ -168,7 +184,7 @@ struct MainView: View {
     
     @ViewBuilder func viewType() -> some View {
         if viewModel.screenType == .burse  {
-            BurseView(viewModel: viewModelFactory.makeBurseViewModel(), screenType: $viewModel.screenType, showMiniGame: $showMiniGame, showDailyReward: $showDailyReward, showBoostView: $showBoostView)
+            BurseView(viewModel: viewModelFactory.makeBurseViewModel(), screenType: $viewModel.screenType, showMiniGame: $showMiniGame, showDailyReward: $showDailyReward, showBoostView: $showBoostView, explodeView: $showExplodeView)
         } else {
             MiningView(viewModel: viewModelFactory.makeMiningViewModel(), showProfessionDetail: $showProfessionDetail, professionId: $professionId, showComboHintView: $showComboHintView)
         }

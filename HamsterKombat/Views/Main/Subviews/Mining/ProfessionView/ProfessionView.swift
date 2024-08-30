@@ -53,7 +53,7 @@ struct ProfessionView: View {
             .padding(.top, -4)
         }
         .frame(height: 113)
-        .background(Color.bgTab)
+        .background(Color.bgTabOld)
         .clipShape(.rect(cornerRadius: 6))
         .onTapGesture {
             action()

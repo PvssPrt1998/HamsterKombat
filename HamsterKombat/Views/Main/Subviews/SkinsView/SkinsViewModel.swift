@@ -61,6 +61,7 @@ final class SkinsViewModel: ObservableObject {
         if dataManager.hamsters[selection].isAvailable {
             dataManager.selectedHamsterId = selection
             dataManager.selectedHamster = dataManager.hamsters[selection]
+            dataManager.saveParameters()
         } else {
             dataManager.hamsters[selection].isAvailable = true
             dataManager.balance -= dataManager.hamsters[selection].price

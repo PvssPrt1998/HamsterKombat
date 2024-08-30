@@ -4,6 +4,8 @@ struct BurseView: View {
     
     @ObservedObject var viewModel: BurseViewModel
     
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @Binding var screenType: MainViewModel.ScreenType
@@ -11,10 +13,14 @@ struct BurseView: View {
     @Binding var showDailyReward: Bool
     @Binding var showBoostView: Bool
     
+    @Binding var explodeView: Bool
+    
     @State var leadingOffset1: CGFloat = 70
     @State var leadingOffset2: CGFloat = 70
     @State var leadingOffset3: CGFloat = 70
     @State var coinPadding: CGFloat = 70
+    
+    @State var bombOpacity: Double = 1
     
     var burseView: some View {
             VStack(spacing: 16) {
@@ -92,62 +98,88 @@ struct BurseView: View {
                 }
                 .padding(.top, 38)
             
-                VStack(spacing: 8) {
-                //MARK: - Coin balance
-                HStack(spacing: 7) {
-                    Image(ImageTitles.CoinDollarIcon.rawValue)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 44)
-                    TextCustom(text: viewModel.hiddenString(), size: 36, weight: .bold, color: .white)
-                        .hidden()
-                        .overlay(
-                            TextCustom(text: viewModel.balanceString(), size: 36, weight: .bold, color: .white)
-                            ,alignment: .leading
-                        )
-                }
-                
-                //MARK: - Hamster
-                    HamsterButton(initialImageTitle: viewModel.selectedImageTitle, imageTitle: $viewModel.selectedImageTitle, disabled: viewModel.isTapDisabled()) {
-                            viewModel.tap()
+                ZStack {
+                    VStack(spacing: 8) {
+                    //MARK: - Coin balance
+                        ZStack {
+                            Image(viewModel.bombImageTitle())
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 48, height: 48)
+                                .opacity(bombOpacity)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            HStack(spacing: 7) {
+                                Image(ImageTitles.CoinDollarIcon.rawValue)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 44)
+                                TextCustom(text: viewModel.hiddenString(), size: 24, weight: .bold, color: .white)
+                                    .hidden()
+                                    .overlay(
+                                        TextCustom(text: viewModel.balanceString(), size: 24, weight: .bold, color: .white)
+                                        ,alignment: .leading
+                                    )
+                            }
                         }
-                        .simultaneousGesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                            .onEnded {
-                                viewModel.tapValue(x: $0.location.x, y: $0.location.y)
-                        })
-                        .overlay(
-                            tapText()
-                        )
-                        .padding(coinPadding)
-                    //
-                }
-                HStack(spacing: 9) {
-                    Image(ImageTitles.LightningIcon.rawValue)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 33, height: 33)
-                    HStack(spacing: 0) {
-                        TextCustom(text: viewModel.hiddenEnergyString(), size: 16, weight: .semibold, color: .white)
-                            .hidden()
+                        //MARK: - Hamster
+                        HamsterButton(initialImageTitle: viewModel.selectedImageTitle, imageTitle: $viewModel.selectedImageTitle, disabled: viewModel.isTapDisabled()) {
+                                viewModel.bombTimer = 5
+                                if viewModel.bombProgress <= 0 {
+                                    bombOpacity = 0
+                                    explodeView = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                                        withAnimation {
+                                            bombOpacity = 1
+                                        }
+                                    }
+                                }
+                                viewModel.tap()
+                            }
+                            .simultaneousGesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                                .onEnded {
+                                    viewModel.tapValue(x: $0.location.x, y: $0.location.y)
+                            })
                             .overlay(
-                                TextCustom(text: "\(viewModel.energy)", size: 16, weight: .semibold, color: .white)
+                                tapText()
                             )
-                        TextCustom(text: "/ \(viewModel.maxEnergy)", size: 16, weight: .semibold, color: .white)
+                            .padding(coinPadding)
+                            .onReceive(viewModel.getTimer()){ value in
+                                if viewModel.bombTimer > 0 {
+                                    viewModel.bombTimer -= 1
+                                }
+                            }
+                            //
                     }
-                    Spacer()
+                    .padding(.bottom, 84)
                     HStack(spacing: 9) {
-                        Image(ImageTitles.RocketIcon.rawValue)
+                        Image(ImageTitles.LightningIcon.rawValue)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 33, height: 33)
-                        TextCustom(text: "Boost", size: 16, weight: .semibold, color: .white)
+                        HStack(spacing: 0) {
+                            TextCustom(text: viewModel.hiddenEnergyString(), size: 16, weight: .semibold, color: .white)
+                                .hidden()
+                                .overlay(
+                                    TextCustom(text: "\(viewModel.energy)", size: 16, weight: .semibold, color: .white)
+                                )
+                            TextCustom(text: "/ \(viewModel.maxEnergy)", size: 16, weight: .semibold, color: .white)
+                        }
+                        Spacer()
+                        HStack(spacing: 9) {
+                            Image(ImageTitles.RocketIcon.rawValue)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 33, height: 33)
+                            TextCustom(text: "Boost", size: 16, weight: .semibold, color: .white)
+                        }
+                        .onTapGesture {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            showBoostView = true
+                        }
                     }
-                    .onTapGesture {
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        showBoostView = true
-                    }
+                    .padding(EdgeInsets(top: -12, leading: 15, bottom: 51, trailing: 15))
+                    .frame(maxHeight: .infinity, alignment: .bottom)
                 }
-                .padding(EdgeInsets(top: -12, leading: 15, bottom: 0, trailing: 15))
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .onAppear {
@@ -182,9 +214,10 @@ struct BurseView_Preview: PreviewProvider {
     @State static var showDailyReward = false
     @State static var showBoostView = false
     @State static var screenType: MainViewModel.ScreenType = .burse
+    @State static var explodeView = false
     
     static var previews: some View {
-        BurseView(viewModel: ViewModelFactory().makeBurseViewModel(), screenType: $screenType, showMiniGame: $showMiniGame, showDailyReward: $showDailyReward, showBoostView: $showBoostView)
+        BurseView(viewModel: ViewModelFactory().makeBurseViewModel(), screenType: $screenType, showMiniGame: $showMiniGame, showDailyReward: $showDailyReward, showBoostView: $showBoostView, explodeView: $explodeView)
             .background(Color.black)
     }
 }

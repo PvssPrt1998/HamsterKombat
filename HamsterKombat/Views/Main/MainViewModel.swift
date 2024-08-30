@@ -14,6 +14,10 @@ final class MainViewModel: ObservableObject {
     
     @Published var screenType: ScreenType = .burse
     
+    var showInitialExplode: Bool {
+        dataManager.showInitialExplode
+    }
+    
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         dataManager.localStorage.saveBalance(dataManager.balance)
@@ -56,7 +60,6 @@ final class MainViewModel: ObservableObject {
     func getTimer() ->  Publishers.Autoconnect<Timer.TimerPublisher> {
         return dataManager.timer
     }
-    
     
     func addEveryHourReward(_ date: Date) {
         dataManager.calculateRewardPerSecond()
